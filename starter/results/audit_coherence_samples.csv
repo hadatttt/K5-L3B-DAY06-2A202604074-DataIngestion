@@ -1,0 +1,411 @@
+sample,strategy,document_id,page,char_pos,chunk_id,chunk_len,unit_text_around_pos,chunk_text
+s01,A,pep-0001,2,1747,pep-0001:p002:c003,500," focused the PEP, the more successful it tends to be.
+Most enhancements and bug fixes don't need a PEP and
+can be submitted directly to the Python issue tracker.
+The PEP editors reserve the
+right to reject PEP proposals if they appear too unfocused or too
+broad.  If in doubt, split your PEP into sev","be conducted via the GitHub PEP repository issues and pull
+requests.
+
+Start with an idea for Python
+
+The PEP process begins with a new idea for Python.  It is highly
+recommended that a single PEP contain a single key proposal or new
+idea; the more focused the PEP, the more successful it tends to be.
+Most enhancements and bug fixes don't need a PEP and
+can be submitted directly to the Python issue tracker.
+The PEP editors reserve the
+right to reject PEP proposals if they appear too unfocused or t"
+s01,B,pep-0001,2,1747,pep-0001:p002:c004,500," focused the PEP, the more successful it tends to be.
+Most enhancements and bug fixes don't need a PEP and
+can be submitted directly to the Python issue tracker.
+The PEP editors reserve the
+right to reject PEP proposals if they appear too unfocused or too
+broad.  If in doubt, split your PEP into sev","Start with an idea for Python
+
+The PEP process begins with a new idea for Python.  It is highly
+recommended that a single PEP contain a single key proposal or new
+idea; the more focused the PEP, the more successful it tends to be.
+Most enhancements and bug fixes don't need a PEP and
+can be submitted directly to the Python issue tracker.
+The PEP editors reserve the
+right to reject PEP proposals if they appear too unfocused or too
+broad.  If in doubt, split your PEP into several well-focused ones."
+s02,A,pep-0008,2,1675,pep-0008:p002:c003,500,"g enough to require
+that it be written across multiple lines, it's worth noting that the
+combination of a two character keyword (i.e. if), plus a single space,
+plus an opening parenthesis creates a natural 4-space indent for the
+subsequent lines of the multiline conditional.  This can produce a visu","ts *may* be indented to other than 4 spaces.
+   foo = long_function_name(
+     var_one, var_two,
+     var_three, var_four)
+
+When the conditional part of an if-statement is long enough to require
+that it be written across multiple lines, it's worth noting that the
+combination of a two character keyword (i.e. if), plus a single space,
+plus an opening parenthesis creates a natural 4-space indent for the
+subsequent lines of the multiline conditional.  This can produce a visual
+conflict with the inde"
+s02,B,pep-0008,2,1675,pep-0008:p002:c002,814,"g enough to require
+that it be written across multiple lines, it's worth noting that the
+combination of a two character keyword (i.e. if), plus a single space,
+plus an opening parenthesis creates a natural 4-space indent for the
+subsequent lines of the multiline conditional.  This can produce a visu","When the conditional part of an if-statement is long enough to require
+that it be written across multiple lines, it's worth noting that the
+combination of a two character keyword (i.e. if), plus a single space,
+plus an opening parenthesis creates a natural 4-space indent for the
+subsequent lines of the multiline conditional.  This can produce a visual
+conflict with the indented suite of code nested inside the if-statement,
+which would also naturally be indented to 4 spaces.  This PEP takes no
+explicit position on how (or whether) to further visually distinguish such
+conditional lines from the nested suite inside the if-statement.
+Acceptable options in this situation include, but are not limited to:
+
+# No extra indentation.
+   if (this_is_one_thing and
+       that_is_another_thing):
+       do_something()"
+s03,A,pep-0257,2,2551,pep-0257:p002:c005,500,"lp"").
+Such a docstring should document the script's function and command
+line syntax, environment variables, and files.  Usage messages can be
+fairly elaborate (several screens full) and should be sufficient for a
+new user to use the command properly, as well as a complete quick
+reference to all opt","should be usable as
+its ""usage"" message, printed when the script is invoked with incorrect
+or missing arguments (or perhaps with a ""-h"" option, for ""help"").
+Such a docstring should document the script's function and command
+line syntax, environment variables, and files.  Usage messages can be
+fairly elaborate (several screens full) and should be sufficient for a
+new user to use the command properly, as well as a complete quick
+reference to all options and arguments for the sophisticated user.
+
+T"
+s03,B,pep-0257,2,2551,pep-0257:p002:c003,977,"lp"").
+Such a docstring should document the script's function and command
+line syntax, environment variables, and files.  Usage messages can be
+fairly elaborate (several screens full) and should be sufficient for a
+new user to use the command properly, as well as a complete quick
+reference to all opt","The docstring of a script (a stand-alone program) should be usable as
+its ""usage"" message, printed when the script is invoked with incorrect
+or missing arguments (or perhaps with a ""-h"" option, for ""help"").
+Such a docstring should document the script's function and command
+line syntax, environment variables, and files.  Usage messages can be
+fairly elaborate (several screens full) and should be sufficient for a
+new user to use the command properly, as well as a complete quick
+reference to all options and arguments for the sophisticated user.
+
+The docstring for a module should generally list the classes,
+exceptions and functions (and any other objects) that are exported by
+the module, with a one-line summary of each.  (These summaries
+generally give less detail than the summary line in the object's
+docstring.)  The docstring for a package (i.e., the docstring of the
+package's __init__.py module) should also list the modules and
+subpackages exported by the package."
+s04,A,pep-0483,2,1352,pep-0483:p002:c002,500," Fails
+
+  unlucky_number = 13    # type: int
+  unlucky_number << 5    # This works
+  unlucky_number = 2.72  # Unsafe
+
+Let us also consider a tricky example: If List[int] denotes the type
+formed by all lists containing only integer numbers,
+then it is *not* a subtype of List[float], formed by all lis","s are subtype of real numbers.
+Indeed, every integer is of course also a real number, and integers
+support more operations, such as, e.g., bitwise shifts << and >>::
+
+  lucky_number = 3.14    # type: float
+  lucky_number = 42      # Safe
+  lucky_number * 2       # This works
+  lucky_number << 5      # Fails
+
+  unlucky_number = 13    # type: int
+  unlucky_number << 5    # This works
+  unlucky_number = 2.72  # Unsafe
+
+Let us also consider a tricky example: If List[int] denotes the type
+formed by a"
+s04,B,pep-0483,2,1352,pep-0483:p002:c001,996," Fails
+
+  unlucky_number = 13    # type: int
+  unlucky_number << 5    # This works
+  unlucky_number = 2.72  # Unsafe
+
+Let us also consider a tricky example: If List[int] denotes the type
+formed by all lists containing only integer numbers,
+then it is *not* a subtype of List[float], formed by all lis","A more formal example: Integers are subtype of real numbers.
+Indeed, every integer is of course also a real number, and integers
+support more operations, such as, e.g., bitwise shifts << and >>::
+
+lucky_number = 3.14    # type: float
+  lucky_number = 42      # Safe
+  lucky_number * 2       # This works
+  lucky_number << 5      # Fails
+
+unlucky_number = 13    # type: int
+  unlucky_number << 5    # This works
+  unlucky_number = 2.72  # Unsafe
+
+Let us also consider a tricky example: If List[int] denotes the type
+formed by all lists containing only integer numbers,
+then it is *not* a subtype of List[float], formed by all lists that contain
+only real numbers. The first condition of subtyping holds,
+but appending a real number only works with List[float] so that
+the second condition fails::
+
+def append_pi(lst: List[float]) -> None:
+      lst += [3.14]
+
+my_list = [1, 3, 5]  # type: List[int]
+
+append_pi(my_list)   # Naively, this should be safe...
+
+my_list[-1] << 5     # ... but this fails"
+s05,A,pep-0484,2,1551,pep-0484:p002:c003,499,"as having the most
+general type possible, or ignored, by any type checker.  Functions
+with the @no_type_check decorator should be treated as having
+no annotations.
+
+It is recommended but not required that checked functions have
+annotations for all arguments and the return type.  For a checked
+functi","Any function without annotations should be treated as having the most
+general type possible, or ignored, by any type checker.  Functions
+with the @no_type_check decorator should be treated as having
+no annotations.
+
+It is recommended but not required that checked functions have
+annotations for all arguments and the return type.  For a checked
+function, the default annotation for arguments and for the return type
+is Any.  An exception is the first argument of instance and
+class methods. If it is"
+s05,B,pep-0484,2,1551,pep-0484:p002:c002,916,"as having the most
+general type possible, or ignored, by any type checker.  Functions
+with the @no_type_check decorator should be treated as having
+no annotations.
+
+It is recommended but not required that checked functions have
+annotations for all arguments and the return type.  For a checked
+functi","The meaning of annotations
+
+Any function without annotations should be treated as having the most
+general type possible, or ignored, by any type checker.  Functions
+with the @no_type_check decorator should be treated as having
+no annotations.
+
+It is recommended but not required that checked functions have
+annotations for all arguments and the return type.  For a checked
+function, the default annotation for arguments and for the return type
+is Any.  An exception is the first argument of instance and
+class methods. If it is not annotated, then it is assumed to have the
+type of the containing class for instance methods, and a type object
+type corresponding to the containing class object for class methods.
+For example, in class A the first argument of an instance method
+has the implicit type A. In a class method, the precise type of
+the first argument cannot be represented using the available type
+notation."
+s06,A,pep-0526,2,767,pep-0526:p002:c001,497,"t
+  wants to parse them, it requires a custom parser instead of just using
+  ast.
+
+- Type comments are used a lot in typeshed. Migrating typeshed to use
+  the variable annotation syntax instead of type comments would improve
+  readability of stubs.
+
+- In situations where normal comments and type com","ype: Logger
+    else:
+        my_var = another_function() # Why isn't there a type here?
+
+- Since type comments aren't actually part of the language, if a Python script
+  wants to parse them, it requires a custom parser instead of just using
+  ast.
+
+- Type comments are used a lot in typeshed. Migrating typeshed to use
+  the variable annotation syntax instead of type comments would improve
+  readability of stubs.
+
+- In situations where normal comments and type comments are used together, it is"
+s06,B,pep-0526,2,767,pep-0526:p002:c000,977,"t
+  wants to parse them, it requires a custom parser instead of just using
+  ast.
+
+- Type comments are used a lot in typeshed. Migrating typeshed to use
+  the variable annotation syntax instead of type comments would improve
+  readability of stubs.
+
+- In situations where normal comments and type com","Rationale
+
+Although type comments work well enough, the fact that they're
+expressed through comments has some downsides:
+
+- Text editors often highlight comments differently from type annotations.
+
+- There's no way to annotate the type of an undefined variable; one needs to
+  initialize it to None (e.g. a = None # type: int).
+
+- Variables annotated in a conditional branch are difficult to read::
+
+if some_value:
+        my_var = function() # type: Logger
+    else:
+        my_var = another_function() # Why isn't there a type here?
+
+- Since type comments aren't actually part of the language, if a Python script
+  wants to parse them, it requires a custom parser instead of just using
+  ast.
+
+- Type comments are used a lot in typeshed. Migrating typeshed to use
+  the variable annotation syntax instead of type comments would improve
+  readability of stubs.
+
+- In situations where normal comments and type comments are used together, it is
+  difficult to distinguish them::"
+s07,A,pep-0572,2,1276,pep-0572:p002:c002,500,"e of
+assignment expressions.  His conclusion: the current proposal would
+have allowed a modest but clear improvement in quite a few bits of
+code.
+
+Another use of real code is to observe indirectly how much value
+programmers place on compactness.  Guido van Rossum searched through a
+Dropbox code base","ever large or small.  Tim Peters
+has been extremely helpful by going over his own personal code
+repository and picking examples of code he had written that (in his
+view) would have been *clearer* if rewritten with (sparing) use of
+assignment expressions.  His conclusion: the current proposal would
+have allowed a modest but clear improvement in quite a few bits of
+code.
+
+Another use of real code is to observe indirectly how much value
+programmers place on compactness.  Guido van Rossum searched t"
+s07,B,pep-0572,2,1276,pep-0572:p002:c001,969,"e of
+assignment expressions.  His conclusion: the current proposal would
+have allowed a modest but clear improvement in quite a few bits of
+code.
+
+Another use of real code is to observe indirectly how much value
+programmers place on compactness.  Guido van Rossum searched through a
+Dropbox code base","However, in order to be *compelling*, examples should be rooted in
+real code, i.e. code that was written without any thought of this PEP,
+as part of a useful application, however large or small.  Tim Peters
+has been extremely helpful by going over his own personal code
+repository and picking examples of code he had written that (in his
+view) would have been *clearer* if rewritten with (sparing) use of
+assignment expressions.  His conclusion: the current proposal would
+have allowed a modest but clear improvement in quite a few bits of
+code.
+
+Another use of real code is to observe indirectly how much value
+programmers place on compactness.  Guido van Rossum searched through a
+Dropbox code base and discovered some evidence that programmers value
+writing fewer lines over shorter lines.
+
+Case in point: Guido found several examples where a programmer
+repeated a subexpression, slowing down the program, in order to save
+one line of code, e.g. instead of writing::"
+s08,A,pep-0634,2,1201,pep-0634:p002:c002,499," a tuple is constructed using the standard rules.
+
+The resulting subject value is then used to select the first case
+block whose patterns succeeds matching it *and* whose guard condition
+(if present) is ""truthy"".  If no case blocks qualify the match
+statement is complete; otherwise, the block of the","all
+other contexts as variable or argument names.
+
+Match Semantics
+
+The match statement first evaluates the subject expression.  If a
+comma is present a tuple is constructed using the standard rules.
+
+The resulting subject value is then used to select the first case
+block whose patterns succeeds matching it *and* whose guard condition
+(if present) is ""truthy"".  If no case blocks qualify the match
+statement is complete; otherwise, the block of the selected case block
+is executed.  The usual rule"
+s08,B,pep-0634,2,1201,pep-0634:p002:c001,660," a tuple is constructed using the standard rules.
+
+The resulting subject value is then used to select the first case
+block whose patterns succeeds matching it *and* whose guard condition
+(if present) is ""truthy"".  If no case blocks qualify the match
+statement is complete; otherwise, the block of the","Match Semantics
+
+The match statement first evaluates the subject expression.  If a
+comma is present a tuple is constructed using the standard rules.
+
+The resulting subject value is then used to select the first case
+block whose patterns succeeds matching it *and* whose guard condition
+(if present) is ""truthy"".  If no case blocks qualify the match
+statement is complete; otherwise, the block of the selected case block
+is executed.  The usual rules for executing a block nested inside a
+compound statement apply (e.g. an if statement).
+
+Name bindings made during a successful pattern match outlive the
+executed block and can be used after the match statement."
+s09,A,pep-0635,2,1083,pep-0635:p002:c002,500,"ted objects.  When dealing with predefined or
+even built-in classes, in particular, it is often impossible to add further
+methods to the individual classes.  Pattern matching not only relieves the
+programmer or class designer from the burden of the boilerplate code needed
+for the Visitor pattern, bu","f the
+class hierarchy or manipulated objects.  When dealing with predefined or
+even built-in classes, in particular, it is often impossible to add further
+methods to the individual classes.  Pattern matching not only relieves the
+programmer or class designer from the burden of the boilerplate code needed
+for the Visitor pattern, but is also flexible enough to directly work with
+built-in types.  It naturally distinguishes between sequences of different
+lengths, which might all share the same clas"
+s09,B,pep-0635,2,1083,pep-0635:p002:c001,844,"ted objects.  When dealing with predefined or
+even built-in classes, in particular, it is often impossible to add further
+methods to the individual classes.  Pattern matching not only relieves the
+programmer or class designer from the burden of the boilerplate code needed
+for the Visitor pattern, bu","Like the Visitor pattern, pattern matching allows for a strict separation
+of concerns: specific actions or data processing is independent of the
+class hierarchy or manipulated objects.  When dealing with predefined or
+even built-in classes, in particular, it is often impossible to add further
+methods to the individual classes.  Pattern matching not only relieves the
+programmer or class designer from the burden of the boilerplate code needed
+for the Visitor pattern, but is also flexible enough to directly work with
+built-in types.  It naturally distinguishes between sequences of different
+lengths, which might all share the same class despite obviously differing
+structures.  Moreover, pattern matching automatically takes inheritance
+into account: a class *D* inheriting from *C* will be handled by a pattern
+that targets *C* by default."
+s10,A,pep-0636,2,982,pep-0636:p002:c002,500,"at the specific actions and conditionally execute
+different logic depending on the specific action (e.g., quit, attack, or buy).
+You could do that using a chain of if/elif/elif/..., or using a dictionary of
+functions, but here we'll leverage pattern matching to solve that task. Instead of a
+variable","pending on the specific action (e.g., quit, attack, or buy).
+You could do that using a chain of if/elif/elif/..., or using a dictionary of
+functions, but here we'll leverage pattern matching to solve that task. Instead of a
+variable, you can use literal values in patterns (like ""quit"", 42, or None).
+This allows you to write::
+
+   match command.split():
+       case [""quit""]:
+           print(""Goodbye!"")
+           quit_game()
+       case [""look""]:
+           current_room.describe()
+       case ["""
+s10,B,pep-0636,2,982,pep-0636:p002:c001,952,"at the specific actions and conditionally execute
+different logic depending on the specific action (e.g., quit, attack, or buy).
+You could do that using a chain of if/elif/elif/..., or using a dictionary of
+functions, but here we'll leverage pattern matching to solve that task. Instead of a
+variable","Matching specific values
+
+Your code still needs to look at the specific actions and conditionally execute
+different logic depending on the specific action (e.g., quit, attack, or buy).
+You could do that using a chain of if/elif/elif/..., or using a dictionary of
+functions, but here we'll leverage pattern matching to solve that task. Instead of a
+variable, you can use literal values in patterns (like ""quit"", 42, or None).
+This allows you to write::
+
+match command.split():
+       case [""quit""]:
+           print(""Goodbye!"")
+           quit_game()
+       case [""look""]:
+           current_room.describe()
+       case [""get"", obj]:
+           character.get(obj, current_room)
+       case [""go"", direction]:
+           current_room = current_room.neighbor(direction)
+       # The rest of your commands go here
+
+A pattern like [""get"", obj] will match only 2-element sequences that have a first
+element equal to ""get"". It will also bind obj = subject[1]."

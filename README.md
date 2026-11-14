@@ -1,3 +1,35 @@
+# Bài làm — Day 06 Data Ingestion (corpus: Python PEPs)
+
+| Thành phần | Đường dẫn |
+|---|---|
+| Thông tin học viên | [STUDENT.md](STUDENT.md) |
+| Code pipeline | [starter/src/](starter/src/) (`run.py` điều phối, `ingestion.py`, `chunking.py`, `embeddings.py`, `store.py`, `evaluation.py`, `audit.py`) |
+| Corpus gốc + manifest | [starter/data/raw/](starter/data/raw/), [data/manifest.json](data/manifest.json) |
+| Benchmark (20 câu, 15 dev / 5 test, gold evidence) | [benchmark/questions.json](benchmark/questions.json) |
+| Nhật ký thí nghiệm A/B/C | [artifacts/experiment_log.csv](artifacts/experiment_log.csv) |
+| Trace, chỉ số, mẫu audit, nhãn thủ công | [starter/results/](starter/results/) |
+| Báo cáo cá nhân | [report/individual/2A202604074_HaVanKhanhDat.md](report/individual/2A202604074_HaVanKhanhDat.md) |
+
+**Stack:** embedding local `BAAI/bge-small-en-v1.5` (384 chiều, sentence-transformers, CPU) + **Chroma 1.5.9** persistent (cosine/HNSW, metadata filter). Không dùng API, chi phí 0. Không dùng Docker/pgvector (máy không có Docker) — `starter/scripts/check_setup.py` của starter không còn áp dụng.
+
+**Chạy lại (Windows PowerShell, từ thư mục `starter/`, Python 3.11):**
+
+```bash
+python -m venv .venv
+.venv\Scripts\python -m pip install torch==2.15.0 --index-url https://download.pytorch.org/whl/cpu
+.venv\Scripts\python -m pip install -r requirements.txt
+.venv\Scripts\python -m src.run all      # prepare -> validate -> ingest x2 (kiểm tra không trùng) -> evaluate
+.venv\Scripts\python -m src.audit        # xuất mẫu chấm coherence / metadata / grounding
+```
+
+Lần đầu tải model (~130 MB) từ Hugging Face. Corpus đã có sẵn trong `starter/data/raw/`; nếu muốn tải lại: `https://raw.githubusercontent.com/python/peps/main/peps/pep-XXXX.rst` cho các PEP liệt kê trong manifest (bản `main` có thể đã đổi — so `sha256` trong manifest).
+
+Kết quả chính (Hit@1 / Evidence Hit@3): A dev 7/15, 11/15 · test 3/5, 5/5 — B dev 10/15, 11/15 · test 4/5, 4/5 — C dev 10/15, 11/15 · test 4/5, 4/5 (C tuân thủ filter 5/5 câu).
+
+---
+
+# Đề bài gốc
+
 # Day 06 · Data Ingestion Engineering
 
 **Lab cá nhân** · **4 giờ** · **Dữ liệu tự chọn**

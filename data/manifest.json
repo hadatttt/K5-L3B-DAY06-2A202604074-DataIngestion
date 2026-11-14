@@ -1,0 +1,1426 @@
+{
+  "corpus": "Python Enhancement Proposals (selected), reStructuredText sources",
+  "repository": "https://github.com/python/peps (branch main)",
+  "accessed_at": "2026-11-14",
+  "page_rule": "Plain-text corpus without physical pages: each document is split in order at section boundaries into units of >= 1500 normalized characters (short tail merged into the previous unit). A unit = one 'page'. Sections References/Copyright/Footnotes/Acknowledgements are excluded as non-content.",
+  "documents": 11,
+  "content_units_counted": 124,
+  "total_normalized_chars": 372750,
+  "sources": [
+    {
+      "source_id": "pep-0001",
+      "title": "PEP Purpose and Guidelines",
+      "source_path_or_url": "https://raw.githubusercontent.com/python/peps/main/peps/pep-0001.rst",
+      "license_or_permission": "Public domain or CC0-1.0-Universal (stated in the document's Copyright section)",
+      "pep_type": "Process",
+      "status": "Active",
+      "created_year": 2000,
+      "python_version": "none",
+      "raw_chars": 41653,
+      "sha256": "7f94574b563a9e3f59c25fe225e0b04d695cb82ad28e83256b76418f8b457adb",
+      "units": [
+        {
+          "page": 1,
+          "first_section": "What is a PEP?",
+          "last_section": "PEP Types",
+          "n_sections": 3,
+          "char_start": 0,
+          "char_end": 2747,
+          "chars": 2747,
+          "counted": true
+        },
+        {
+          "page": 2,
+          "first_section": "PEP Workflow",
+          "last_section": "Start with an idea for Python",
+          "n_sections": 6,
+          "char_start": 2749,
+          "char_end": 6243,
+          "chars": 3494,
+          "counted": true
+        },
+        {
+          "page": 3,
+          "first_section": "Finding a sponsor",
+          "last_section": "Submitting a PEP",
+          "n_sections": 2,
+          "char_start": 6245,
+          "char_end": 11371,
+          "chars": 5126,
+          "counted": true
+        },
+        {
+          "page": 4,
+          "first_section": "Discussing a PEP",
+          "last_section": "Discussing a PEP",
+          "n_sections": 1,
+          "char_start": 11373,
+          "char_end": 14257,
+          "chars": 2884,
+          "counted": true
+        },
+        {
+          "page": 5,
+          "first_section": "PEP Review & Resolution",
+          "last_section": "PEP Review & Resolution",
+          "n_sections": 1,
+          "char_start": 14259,
+          "char_end": 21816,
+          "chars": 7557,
+          "counted": true
+        },
+        {
+          "page": 6,
+          "first_section": "PEP Maintenance",
+          "last_section": "What belongs in a successful PEP?",
+          "n_sections": 2,
+          "char_start": 21818,
+          "char_end": 28247,
+          "chars": 6429,
+          "counted": true
+        },
+        {
+          "page": 7,
+          "first_section": "PEP Formats and Templates",
+          "last_section": "PEP Header Preamble",
+          "n_sections": 2,
+          "char_start": 28249,
+          "char_end": 32659,
+          "chars": 4410,
+          "counted": true
+        },
+        {
+          "page": 8,
+          "first_section": "Auxiliary Files",
+          "last_section": "Transferring PEP Ownership",
+          "n_sections": 3,
+          "char_start": 32661,
+          "char_end": 35148,
+          "chars": 2487,
+          "counted": true
+        },
+        {
+          "page": 9,
+          "first_section": "PEP Editor Responsibilities & Workflow",
+          "last_section": "Change History",
+          "n_sections": 2,
+          "char_start": 35150,
+          "char_end": 38445,
+          "chars": 3295,
+          "counted": true
+        }
+      ],
+      "local_path": "starter/data/raw/pep-0001.rst"
+    },
+    {
+      "source_id": "pep-0008",
+      "title": "Style Guide for Python Code",
+      "source_path_or_url": "https://raw.githubusercontent.com/python/peps/main/peps/pep-0008.rst",
+      "license_or_permission": "Public domain (stated in the document's Copyright section)",
+      "pep_type": "Process",
+      "status": "Active",
+      "created_year": 2001,
+      "python_version": "none",
+      "raw_chars": 50782,
+      "sha256": "6028935c6cb2c674d5f4d512c7ba6ce2923713b1c47ce1a78adc690db817fc5d",
+      "units": [
+        {
+          "page": 1,
+          "first_section": "Introduction",
+          "last_section": "A Foolish Consistency is the Hobgoblin of Little Minds",
+          "n_sections": 2,
+          "char_start": 0,
+          "char_end": 2222,
+          "chars": 2222,
+          "counted": true
+        },
+        {
+          "page": 2,
+          "first_section": "Code Lay-out",
+          "last_section": "Indentation",
+          "n_sections": 2,
+          "char_start": 2224,
+          "char_end": 5575,
+          "chars": 3351,
+          "counted": true
+        },
+        {
+          "page": 3,
+          "first_section": "Tabs or Spaces?",
+          "last_section": "Maximum Line Length",
+          "n_sections": 2,
+          "char_start": 5577,
+          "char_end": 7850,
+          "chars": 2273,
+          "counted": true
+        },
+        {
+          "page": 4,
+          "first_section": "Should a Line Break Before or After a Binary Operator?",
+          "last_section": "Blank Lines",
+          "n_sections": 2,
+          "char_start": 7852,
+          "char_end": 10075,
+          "chars": 2223,
+          "counted": true
+        },
+        {
+          "page": 5,
+          "first_section": "Source File Encoding",
+          "last_section": "Imports",
+          "n_sections": 2,
+          "char_start": 10077,
+          "char_end": 13105,
+          "chars": 3028,
+          "counted": true
+        },
+        {
+          "page": 6,
+          "first_section": "Module Level Dunder Names",
+          "last_section": "Pet Peeves",
+          "n_sections": 4,
+          "char_start": 13107,
+          "char_end": 16002,
+          "chars": 2895,
+          "counted": true
+        },
+        {
+          "page": 7,
+          "first_section": "Other Recommendations",
+          "last_section": "Other Recommendations",
+          "n_sections": 1,
+          "char_start": 16004,
+          "char_end": 19020,
+          "chars": 3016,
+          "counted": true
+        },
+        {
+          "page": 8,
+          "first_section": "When to Use Trailing Commas",
+          "last_section": "Comments",
+          "n_sections": 2,
+          "char_start": 19022,
+          "char_end": 20938,
+          "chars": 1916,
+          "counted": true
+        },
+        {
+          "page": 9,
+          "first_section": "Block Comments",
+          "last_section": "Documentation Strings",
+          "n_sections": 3,
+          "char_start": 20940,
+          "char_end": 22477,
+          "chars": 1537,
+          "counted": true
+        },
+        {
+          "page": 10,
+          "first_section": "Naming Conventions",
+          "last_section": "Descriptive: Naming Styles",
+          "n_sections": 3,
+          "char_start": 22479,
+          "char_end": 25317,
+          "chars": 2838,
+          "counted": true
+        },
+        {
+          "page": 11,
+          "first_section": "Prescriptive: Naming Conventions",
+          "last_section": "Type Variable Names",
+          "n_sections": 6,
+          "char_start": 25319,
+          "char_end": 27070,
+          "chars": 1751,
+          "counted": true
+        },
+        {
+          "page": 12,
+          "first_section": "Exception Names",
+          "last_section": "Method Names and Instance Variables",
+          "n_sections": 5,
+          "char_start": 27072,
+          "char_end": 29214,
+          "chars": 2142,
+          "counted": true
+        },
+        {
+          "page": 13,
+          "first_section": "Constants",
+          "last_section": "Designing for Inheritance",
+          "n_sections": 2,
+          "char_start": 29216,
+          "char_end": 32737,
+          "chars": 3521,
+          "counted": true
+        },
+        {
+          "page": 14,
+          "first_section": "Public and Internal Interfaces",
+          "last_section": "Programming Recommendations",
+          "n_sections": 2,
+          "char_start": 32739,
+          "char_end": 42607,
+          "chars": 9868,
+          "counted": true
+        },
+        {
+          "page": 15,
+          "first_section": "Function Annotations",
+          "last_section": "Variable Annotations",
+          "n_sections": 2,
+          "char_start": 42609,
+          "char_end": 45379,
+          "chars": 2770,
+          "counted": true
+        }
+      ],
+      "local_path": "starter/data/raw/pep-0008.rst"
+    },
+    {
+      "source_id": "pep-0020",
+      "title": "The Zen of Python",
+      "source_path_or_url": "https://raw.githubusercontent.com/python/peps/main/peps/pep-0020.rst",
+      "license_or_permission": "Public domain (stated in the document's Copyright section)",
+      "pep_type": "Informational",
+      "status": "Active",
+      "created_year": 2004,
+      "python_version": "none",
+      "raw_chars": 1648,
+      "sha256": "742999637cc96eef52e8148fdf65a6065a0953daee92bb48b8c739efcf6def07",
+      "units": [
+        {
+          "page": 1,
+          "first_section": "Abstract",
+          "last_section": "Easter Egg",
+          "n_sections": 3,
+          "char_start": 0,
+          "char_end": 1120,
+          "chars": 1120,
+          "counted": false
+        }
+      ],
+      "local_path": "starter/data/raw/pep-0020.rst"
+    },
+    {
+      "source_id": "pep-0257",
+      "title": "Docstring Conventions",
+      "source_path_or_url": "https://raw.githubusercontent.com/python/peps/main/peps/pep-0257.rst",
+      "license_or_permission": "Public domain (stated in the document's Copyright section)",
+      "pep_type": "Informational",
+      "status": "Active",
+      "created_year": 2001,
+      "python_version": "none",
+      "raw_chars": 10581,
+      "sha256": "7db41c5aaea3bfde0463307c72b38d735dc604491cadd059d7f9fe94b8142c0e",
+      "units": [
+        {
+          "page": 1,
+          "first_section": "Abstract",
+          "last_section": "What is a Docstring?",
+          "n_sections": 4,
+          "char_start": 0,
+          "char_end": 2323,
+          "chars": 2323,
+          "counted": true
+        },
+        {
+          "page": 2,
+          "first_section": "One-line Docstrings",
+          "last_section": "Multi-line Docstrings",
+          "n_sections": 2,
+          "char_start": 2325,
+          "char_end": 7428,
+          "chars": 5103,
+          "counted": true
+        },
+        {
+          "page": 3,
+          "first_section": "Handling Docstring Indentation",
+          "last_section": "Handling Docstring Indentation",
+          "n_sections": 1,
+          "char_start": 7430,
+          "char_end": 9678,
+          "chars": 2248,
+          "counted": true
+        }
+      ],
+      "local_path": "starter/data/raw/pep-0257.rst"
+    },
+    {
+      "source_id": "pep-0483",
+      "title": "The Theory of Type Hints",
+      "source_path_or_url": "https://raw.githubusercontent.com/python/peps/main/peps/pep-0483.rst",
+      "license_or_permission": "UNKNOWN - check manually",
+      "pep_type": "Informational",
+      "status": "Final",
+      "created_year": 2014,
+      "python_version": "none",
+      "raw_chars": 29302,
+      "sha256": "0c650e4a02826fc17515342e4e5b64f51f59a248979d3432dbffaf5f4e8e8ced",
+      "units": [
+        {
+          "page": 1,
+          "first_section": "Abstract",
+          "last_section": "Background",
+          "n_sections": 4,
+          "char_start": 0,
+          "char_end": 2850,
+          "chars": 2850,
+          "counted": true
+        },
+        {
+          "page": 2,
+          "first_section": "Subtype relationships",
+          "last_section": "Subtype relationships",
+          "n_sections": 1,
+          "char_start": 2852,
+          "char_end": 5556,
+          "chars": 2704,
+          "counted": true
+        },
+        {
+          "page": 3,
+          "first_section": "Summary of gradual typing",
+          "last_section": "Summary of gradual typing",
+          "n_sections": 1,
+          "char_start": 5558,
+          "char_end": 8057,
+          "chars": 2499,
+          "counted": true
+        },
+        {
+          "page": 4,
+          "first_section": "Types vs. Classes",
+          "last_section": "Fundamental building blocks",
+          "n_sections": 2,
+          "char_start": 8059,
+          "char_end": 12762,
+          "chars": 4703,
+          "counted": true
+        },
+        {
+          "page": 5,
+          "first_section": "Generic types",
+          "last_section": "Generic types",
+          "n_sections": 1,
+          "char_start": 12764,
+          "char_end": 15530,
+          "chars": 2766,
+          "counted": true
+        },
+        {
+          "page": 6,
+          "first_section": "Type variables",
+          "last_section": "Type variables",
+          "n_sections": 1,
+          "char_start": 15532,
+          "char_end": 17819,
+          "chars": 2287,
+          "counted": true
+        },
+        {
+          "page": 7,
+          "first_section": "Defining and using generic types",
+          "last_section": "Defining and using generic types",
+          "n_sections": 1,
+          "char_start": 17821,
+          "char_end": 20564,
+          "chars": 2743,
+          "counted": true
+        },
+        {
+          "page": 8,
+          "first_section": "Covariance and Contravariance",
+          "last_section": "Predefined generic types and Protocols in typing.py",
+          "n_sections": 3,
+          "char_start": 20566,
+          "char_end": 26840,
+          "chars": 6274,
+          "counted": true
+        }
+      ],
+      "local_path": "starter/data/raw/pep-0483.rst"
+    },
+    {
+      "source_id": "pep-0484",
+      "title": "Type Hints",
+      "source_path_or_url": "https://raw.githubusercontent.com/python/peps/main/peps/pep-0484.rst",
+      "license_or_permission": "Public domain (stated in the document's Copyright section)",
+      "pep_type": "Standards Track",
+      "status": "Final",
+      "created_year": 2014,
+      "python_version": "3.5",
+      "raw_chars": 88613,
+      "sha256": "ddfe61c36a61b3ba926aaf23f4934ab17493a1cb7ea5d45497235b552c4a9f7c",
+      "units": [
+        {
+          "page": 1,
+          "first_section": "Abstract",
+          "last_section": "Abstract",
+          "n_sections": 1,
+          "char_start": 0,
+          "char_end": 2274,
+          "chars": 2274,
+          "counted": true
+        },
+        {
+          "page": 2,
+          "first_section": "Rationale and Goals",
+          "last_section": "The meaning of annotations",
+          "n_sections": 3,
+          "char_start": 2276,
+          "char_end": 5379,
+          "chars": 3103,
+          "counted": true
+        },
+        {
+          "page": 3,
+          "first_section": "Type Definition Syntax",
+          "last_section": "Acceptable type hints",
+          "n_sections": 2,
+          "char_start": 5381,
+          "char_end": 7283,
+          "chars": 1902,
+          "counted": true
+        },
+        {
+          "page": 4,
+          "first_section": "Using None",
+          "last_section": "Callable",
+          "n_sections": 3,
+          "char_start": 7285,
+          "char_end": 9919,
+          "chars": 2634,
+          "counted": true
+        },
+        {
+          "page": 5,
+          "first_section": "Generics",
+          "last_section": "Generics",
+          "n_sections": 1,
+          "char_start": 9921,
+          "char_end": 12306,
+          "chars": 2385,
+          "counted": true
+        },
+        {
+          "page": 6,
+          "first_section": "User-defined generic types",
+          "last_section": "User-defined generic types",
+          "n_sections": 1,
+          "char_start": 12308,
+          "char_end": 14884,
+          "chars": 2576,
+          "counted": true
+        },
+        {
+          "page": 7,
+          "first_section": "Scoping rules for type variables",
+          "last_section": "Scoping rules for type variables",
+          "n_sections": 1,
+          "char_start": 14886,
+          "char_end": 17713,
+          "chars": 2827,
+          "counted": true
+        },
+        {
+          "page": 8,
+          "first_section": "Instantiating generic classes and type erasure",
+          "last_section": "Instantiating generic classes and type erasure",
+          "n_sections": 1,
+          "char_start": 17715,
+          "char_end": 21039,
+          "chars": 3324,
+          "counted": true
+        },
+        {
+          "page": 9,
+          "first_section": "Arbitrary generic types as base classes",
+          "last_section": "Arbitrary generic types as base classes",
+          "n_sections": 1,
+          "char_start": 21041,
+          "char_end": 22644,
+          "chars": 1603,
+          "counted": true
+        },
+        {
+          "page": 10,
+          "first_section": "Abstract generic types",
+          "last_section": "Covariance and contravariance",
+          "n_sections": 3,
+          "char_start": 22646,
+          "char_end": 27194,
+          "chars": 4548,
+          "counted": true
+        },
+        {
+          "page": 11,
+          "first_section": "The numeric tower",
+          "last_section": "Forward references",
+          "n_sections": 2,
+          "char_start": 27196,
+          "char_end": 30593,
+          "chars": 3397,
+          "counted": true
+        },
+        {
+          "page": 12,
+          "first_section": "Union types",
+          "last_section": "Support for singleton types in unions",
+          "n_sections": 2,
+          "char_start": 30595,
+          "char_end": 33660,
+          "chars": 3065,
+          "counted": true
+        },
+        {
+          "page": 13,
+          "first_section": "The Any type",
+          "last_section": "The NoReturn type",
+          "n_sections": 2,
+          "char_start": 33662,
+          "char_end": 36487,
+          "chars": 2825,
+          "counted": true
+        },
+        {
+          "page": 14,
+          "first_section": "The type of class objects",
+          "last_section": "The type of class objects",
+          "n_sections": 1,
+          "char_start": 36489,
+          "char_end": 40337,
+          "chars": 3848,
+          "counted": true
+        },
+        {
+          "page": 15,
+          "first_section": "Annotating instance and class methods",
+          "last_section": "Version and platform checking",
+          "n_sections": 2,
+          "char_start": 40339,
+          "char_end": 41948,
+          "chars": 1609,
+          "counted": true
+        },
+        {
+          "page": 16,
+          "first_section": "Runtime or type checking?",
+          "last_section": "Arbitrary argument lists and default argument values",
+          "n_sections": 2,
+          "char_start": 41950,
+          "char_end": 43641,
+          "chars": 1691,
+          "counted": true
+        },
+        {
+          "page": 17,
+          "first_section": "Positional-only arguments",
+          "last_section": "Annotating generator functions and coroutines",
+          "n_sections": 2,
+          "char_start": 43643,
+          "char_end": 45498,
+          "chars": 1855,
+          "counted": true
+        },
+        {
+          "page": 18,
+          "first_section": "Compatibility with other uses of function annotations",
+          "last_section": "Type comments",
+          "n_sections": 2,
+          "char_start": 45500,
+          "char_end": 49288,
+          "chars": 3788,
+          "counted": true
+        },
+        {
+          "page": 19,
+          "first_section": "Casts",
+          "last_section": "NewType helper function",
+          "n_sections": 2,
+          "char_start": 49290,
+          "char_end": 52509,
+          "chars": 3219,
+          "counted": true
+        },
+        {
+          "page": 20,
+          "first_section": "Stub Files",
+          "last_section": "Stub Files",
+          "n_sections": 1,
+          "char_start": 52511,
+          "char_end": 54986,
+          "chars": 2475,
+          "counted": true
+        },
+        {
+          "page": 21,
+          "first_section": "Function/method overloading",
+          "last_section": "Function/method overloading",
+          "n_sections": 1,
+          "char_start": 54988,
+          "char_end": 59474,
+          "chars": 4486,
+          "counted": true
+        },
+        {
+          "page": 22,
+          "first_section": "Storing and distributing stub files",
+          "last_section": "Storing and distributing stub files",
+          "n_sections": 1,
+          "char_start": 59476,
+          "char_end": 62123,
+          "chars": 2647,
+          "counted": true
+        },
+        {
+          "page": 23,
+          "first_section": "The Typeshed Repo",
+          "last_section": "The typing Module",
+          "n_sections": 3,
+          "char_start": 62125,
+          "char_end": 67868,
+          "chars": 5743,
+          "counted": true
+        },
+        {
+          "page": 24,
+          "first_section": "Suggested syntax for Python 2.7 and straddling code",
+          "last_section": "Suggested syntax for Python 2.7 and straddling code",
+          "n_sections": 1,
+          "char_start": 67870,
+          "char_end": 72049,
+          "chars": 4179,
+          "counted": true
+        },
+        {
+          "page": 25,
+          "first_section": "Rejected Alternatives",
+          "last_section": "Which brackets for generic type parameters?",
+          "n_sections": 2,
+          "char_start": 72051,
+          "char_end": 74390,
+          "chars": 2339,
+          "counted": true
+        },
+        {
+          "page": 26,
+          "first_section": "What about existing uses of annotations?",
+          "last_section": "What about existing uses of annotations?",
+          "n_sections": 1,
+          "char_start": 74392,
+          "char_end": 77114,
+          "chars": 2722,
+          "counted": true
+        },
+        {
+          "page": 27,
+          "first_section": "The problem of forward declarations",
+          "last_section": "The problem of forward declarations",
+          "n_sections": 1,
+          "char_start": 77116,
+          "char_end": 79493,
+          "chars": 2377,
+          "counted": true
+        },
+        {
+          "page": 28,
+          "first_section": "The double colon",
+          "last_section": "The double colon",
+          "n_sections": 1,
+          "char_start": 79495,
+          "char_end": 81698,
+          "chars": 2203,
+          "counted": true
+        },
+        {
+          "page": 29,
+          "first_section": "Other forms of new syntax",
+          "last_section": "PEP Development Process",
+          "n_sections": 3,
+          "char_start": 81700,
+          "char_end": 83468,
+          "chars": 1768,
+          "counted": true
+        }
+      ],
+      "local_path": "starter/data/raw/pep-0484.rst"
+    },
+    {
+      "source_id": "pep-0526",
+      "title": "Syntax for Variable Annotations",
+      "source_path_or_url": "https://raw.githubusercontent.com/python/peps/main/peps/pep-0526.rst",
+      "license_or_permission": "Public domain (stated in the document's Copyright section)",
+      "pep_type": "Standards Track",
+      "status": "Final",
+      "created_year": 2016,
+      "python_version": "3.6",
+      "raw_chars": 25215,
+      "sha256": "b6e0a6994ba2ab57554cba933d830daa692cdb11f9351dcb34ca7f8a3932a32e",
+      "units": [
+        {
+          "page": 1,
+          "first_section": "(preamble)",
+          "last_section": "Abstract",
+          "n_sections": 4,
+          "char_start": 0,
+          "char_end": 1672,
+          "chars": 1672,
+          "counted": true
+        },
+        {
+          "page": 2,
+          "first_section": "Rationale",
+          "last_section": "Rationale",
+          "n_sections": 1,
+          "char_start": 1674,
+          "char_end": 3208,
+          "chars": 1534,
+          "counted": true
+        },
+        {
+          "page": 3,
+          "first_section": "Non-goals",
+          "last_section": "Specification",
+          "n_sections": 2,
+          "char_start": 3210,
+          "char_end": 4878,
+          "chars": 1668,
+          "counted": true
+        },
+        {
+          "page": 4,
+          "first_section": "Global and local variable annotations",
+          "last_section": "Global and local variable annotations",
+          "n_sections": 1,
+          "char_start": 4880,
+          "char_end": 6397,
+          "chars": 1517,
+          "counted": true
+        },
+        {
+          "page": 5,
+          "first_section": "Class and instance variable annotations",
+          "last_section": "Class and instance variable annotations",
+          "n_sections": 1,
+          "char_start": 6399,
+          "char_end": 9251,
+          "chars": 2852,
+          "counted": true
+        },
+        {
+          "page": 6,
+          "first_section": "Annotating expressions",
+          "last_section": "Variable annotations in stub files",
+          "n_sections": 3,
+          "char_start": 9253,
+          "char_end": 11064,
+          "chars": 1811,
+          "counted": true
+        },
+        {
+          "page": 7,
+          "first_section": "Preferred coding style for variable annotations",
+          "last_section": "Changes to Standard Library and Documentation",
+          "n_sections": 2,
+          "char_start": 11066,
+          "char_end": 12946,
+          "chars": 1880,
+          "counted": true
+        },
+        {
+          "page": 8,
+          "first_section": "Runtime Effects of Type Annotations",
+          "last_section": "Runtime Effects of Type Annotations",
+          "n_sections": 1,
+          "char_start": 12948,
+          "char_end": 15574,
+          "chars": 2626,
+          "counted": true
+        },
+        {
+          "page": 9,
+          "first_section": "Other uses of annotations",
+          "last_section": "Implementation",
+          "n_sections": 4,
+          "char_start": 15576,
+          "char_end": 23482,
+          "chars": 7906,
+          "counted": true
+        }
+      ],
+      "local_path": "starter/data/raw/pep-0526.rst"
+    },
+    {
+      "source_id": "pep-0572",
+      "title": "Assignment Expressions",
+      "source_path_or_url": "https://raw.githubusercontent.com/python/peps/main/peps/pep-0572.rst",
+      "license_or_permission": "Public domain (stated in the document's Copyright section)",
+      "pep_type": "Standards Track",
+      "status": "Final",
+      "created_year": 2018,
+      "python_version": "3.8",
+      "raw_chars": 47028,
+      "sha256": "abf5401ec523a03d59a6f3173842784f426bfd49d8b0a87a512646557bcef8b1",
+      "units": [
+        {
+          "page": 1,
+          "first_section": "Abstract",
+          "last_section": "Rationale",
+          "n_sections": 2,
+          "char_start": 0,
+          "char_end": 1533,
+          "chars": 1533,
+          "counted": true
+        },
+        {
+          "page": 2,
+          "first_section": "The importance of real code",
+          "last_section": "The importance of real code",
+          "n_sections": 1,
+          "char_start": 1535,
+          "char_end": 4087,
+          "chars": 2552,
+          "counted": true
+        },
+        {
+          "page": 3,
+          "first_section": "Syntax and semantics",
+          "last_section": "Exceptional cases",
+          "n_sections": 2,
+          "char_start": 4089,
+          "char_end": 8309,
+          "chars": 4220,
+          "counted": true
+        },
+        {
+          "page": 4,
+          "first_section": "Scope of the target",
+          "last_section": "Scope of the target",
+          "n_sections": 1,
+          "char_start": 8311,
+          "char_end": 13263,
+          "chars": 4952,
+          "counted": true
+        },
+        {
+          "page": 5,
+          "first_section": "Relative precedence of :=",
+          "last_section": "Change to evaluation order",
+          "n_sections": 2,
+          "char_start": 13265,
+          "char_end": 15467,
+          "chars": 2202,
+          "counted": true
+        },
+        {
+          "page": 6,
+          "first_section": "Differences between  assignment expressions and assignment statements",
+          "last_section": "Specification changes during implementation",
+          "n_sections": 2,
+          "char_start": 15469,
+          "char_end": 17740,
+          "chars": 2271,
+          "counted": true
+        },
+        {
+          "page": 7,
+          "first_section": "Examples",
+          "last_section": "copy.py",
+          "n_sections": 5,
+          "char_start": 17742,
+          "char_end": 19293,
+          "chars": 1551,
+          "counted": true
+        },
+        {
+          "page": 8,
+          "first_section": "datetime.py",
+          "last_section": "Simplifying list comprehensions",
+          "n_sections": 3,
+          "char_start": 19295,
+          "char_end": 21151,
+          "chars": 1856,
+          "counted": true
+        },
+        {
+          "page": 9,
+          "first_section": "Capturing condition values",
+          "last_section": "Rejected alternative proposals",
+          "n_sections": 3,
+          "char_start": 21153,
+          "char_end": 22716,
+          "chars": 1563,
+          "counted": true
+        },
+        {
+          "page": 10,
+          "first_section": "Changing the scope rules for comprehensions",
+          "last_section": "Alternative spellings",
+          "n_sections": 2,
+          "char_start": 22718,
+          "char_end": 26490,
+          "chars": 3772,
+          "counted": true
+        },
+        {
+          "page": 11,
+          "first_section": "Special-casing conditional statements",
+          "last_section": "Special-casing comprehensions",
+          "n_sections": 2,
+          "char_start": 26492,
+          "char_end": 29554,
+          "chars": 3062,
+          "counted": true
+        },
+        {
+          "page": 12,
+          "first_section": "Lowering operator precedence",
+          "last_section": "Allowing commas to the right",
+          "n_sections": 2,
+          "char_start": 29556,
+          "char_end": 31283,
+          "chars": 1727,
+          "counted": true
+        },
+        {
+          "page": 13,
+          "first_section": "Always requiring parentheses",
+          "last_section": "Why not use a sublocal scope and prevent namespace pollution?",
+          "n_sections": 5,
+          "char_start": 31285,
+          "char_end": 33333,
+          "chars": 2048,
+          "counted": true
+        },
+        {
+          "page": 14,
+          "first_section": "Style guide recommendations",
+          "last_section": "Appendix A: Tim Peters's findings",
+          "n_sections": 2,
+          "char_start": 33335,
+          "char_end": 38253,
+          "chars": 4918,
+          "counted": true
+        },
+        {
+          "page": 15,
+          "first_section": "A numeric example",
+          "last_section": "Appendix C: No Changes to Scope Semantics",
+          "n_sections": 3,
+          "char_start": 38255,
+          "char_end": 44094,
+          "chars": 5839,
+          "counted": true
+        }
+      ],
+      "local_path": "starter/data/raw/pep-0572.rst"
+    },
+    {
+      "source_id": "pep-0634",
+      "title": "Structural Pattern Matching: Specification",
+      "source_path_or_url": "https://raw.githubusercontent.com/python/peps/main/peps/pep-0634.rst",
+      "license_or_permission": "Public domain or CC0-1.0-Universal (stated in the document's Copyright section)",
+      "pep_type": "Standards Track",
+      "status": "Final",
+      "created_year": 2020,
+      "python_version": "3.10",
+      "raw_chars": 23168,
+      "sha256": "352927baffdbb0fdaba34cf059e95fe2a464a604fdba167a41c6257c90e10e5e",
+      "units": [
+        {
+          "page": 1,
+          "first_section": "Abstract",
+          "last_section": "Overview and Terminology",
+          "n_sections": 3,
+          "char_start": 0,
+          "char_end": 1887,
+          "chars": 1887,
+          "counted": true
+        },
+        {
+          "page": 2,
+          "first_section": "The Match Statement",
+          "last_section": "Match Semantics",
+          "n_sections": 2,
+          "char_start": 1889,
+          "char_end": 4292,
+          "chars": 2403,
+          "counted": true
+        },
+        {
+          "page": 3,
+          "first_section": "Guards",
+          "last_section": "Patterns",
+          "n_sections": 3,
+          "char_start": 4294,
+          "char_end": 5965,
+          "chars": 1671,
+          "counted": true
+        },
+        {
+          "page": 4,
+          "first_section": "AS Patterns",
+          "last_section": "Literal Patterns",
+          "n_sections": 3,
+          "char_start": 5967,
+          "char_end": 7694,
+          "chars": 1727,
+          "counted": true
+        },
+        {
+          "page": 5,
+          "first_section": "Capture Patterns",
+          "last_section": "Group Patterns",
+          "n_sections": 4,
+          "char_start": 7696,
+          "char_end": 9386,
+          "chars": 1690,
+          "counted": true
+        },
+        {
+          "page": 6,
+          "first_section": "Sequence Patterns",
+          "last_section": "Sequence Patterns",
+          "n_sections": 1,
+          "char_start": 9388,
+          "char_end": 12306,
+          "chars": 2918,
+          "counted": true
+        },
+        {
+          "page": 7,
+          "first_section": "Mapping Patterns",
+          "last_section": "Mapping Patterns",
+          "n_sections": 1,
+          "char_start": 12308,
+          "char_end": 14298,
+          "chars": 1990,
+          "counted": true
+        },
+        {
+          "page": 8,
+          "first_section": "Class Patterns",
+          "last_section": "Class Patterns",
+          "n_sections": 1,
+          "char_start": 14300,
+          "char_end": 17145,
+          "chars": 2845,
+          "counted": true
+        },
+        {
+          "page": 9,
+          "first_section": "Side Effects and Undefined Behavior",
+          "last_section": "The Standard Library",
+          "n_sections": 2,
+          "char_start": 17147,
+          "char_end": 18917,
+          "chars": 1770,
+          "counted": true
+        },
+        {
+          "page": 10,
+          "first_section": "Appendix A -- Full Grammar",
+          "last_section": "Appendix A -- Full Grammar",
+          "n_sections": 1,
+          "char_start": 18919,
+          "char_end": 21341,
+          "chars": 2422,
+          "counted": true
+        }
+      ],
+      "local_path": "starter/data/raw/pep-0634.rst"
+    },
+    {
+      "source_id": "pep-0635",
+      "title": "Structural Pattern Matching: Motivation and Rationale",
+      "source_path_or_url": "https://raw.githubusercontent.com/python/peps/main/peps/pep-0635.rst",
+      "license_or_permission": "Public domain or CC0-1.0-Universal (stated in the document's Copyright section)",
+      "pep_type": "Informational",
+      "status": "Final",
+      "created_year": 2020,
+      "python_version": "3.10",
+      "raw_chars": 58227,
+      "sha256": "72feab4f0c2eb0c5d21700b610beb92ea508fb5b87379d3aeb62886a4605e833",
+      "units": [
+        {
+          "page": 1,
+          "first_section": "Abstract",
+          "last_section": "Motivation",
+          "n_sections": 2,
+          "char_start": 0,
+          "char_end": 2075,
+          "chars": 2075,
+          "counted": true
+        },
+        {
+          "page": 2,
+          "first_section": "Pattern Matching and OO",
+          "last_section": "Pattern Matching and OO",
+          "n_sections": 1,
+          "char_start": 2077,
+          "char_end": 4243,
+          "chars": 2166,
+          "counted": true
+        },
+        {
+          "page": 3,
+          "first_section": "Patterns and Functional Style",
+          "last_section": "Overview and Terminology",
+          "n_sections": 3,
+          "char_start": 4245,
+          "char_end": 6486,
+          "chars": 2241,
+          "counted": true
+        },
+        {
+          "page": 4,
+          "first_section": "The Match Statement",
+          "last_section": "The Match Statement",
+          "n_sections": 1,
+          "char_start": 6488,
+          "char_end": 12382,
+          "chars": 5894,
+          "counted": true
+        },
+        {
+          "page": 5,
+          "first_section": "Match Semantics",
+          "last_section": "Match Semantics",
+          "n_sections": 1,
+          "char_start": 12384,
+          "char_end": 14976,
+          "chars": 2592,
+          "counted": true
+        },
+        {
+          "page": 6,
+          "first_section": "Guards",
+          "last_section": "Guards",
+          "n_sections": 1,
+          "char_start": 14978,
+          "char_end": 16805,
+          "chars": 1827,
+          "counted": true
+        },
+        {
+          "page": 7,
+          "first_section": "Patterns",
+          "last_section": "Patterns",
+          "n_sections": 1,
+          "char_start": 16807,
+          "char_end": 18496,
+          "chars": 1689,
+          "counted": true
+        },
+        {
+          "page": 8,
+          "first_section": "AS Patterns",
+          "last_section": "AS Patterns",
+          "n_sections": 1,
+          "char_start": 18498,
+          "char_end": 20710,
+          "chars": 2212,
+          "counted": true
+        },
+        {
+          "page": 9,
+          "first_section": "OR Patterns",
+          "last_section": "OR Patterns",
+          "n_sections": 1,
+          "char_start": 20712,
+          "char_end": 24916,
+          "chars": 4204,
+          "counted": true
+        },
+        {
+          "page": 10,
+          "first_section": "Literal Patterns",
+          "last_section": "Literal Patterns",
+          "n_sections": 1,
+          "char_start": 24918,
+          "char_end": 28624,
+          "chars": 3706,
+          "counted": true
+        },
+        {
+          "page": 11,
+          "first_section": "Capture Patterns",
+          "last_section": "Capture Patterns",
+          "n_sections": 1,
+          "char_start": 28626,
+          "char_end": 31476,
+          "chars": 2850,
+          "counted": true
+        },
+        {
+          "page": 12,
+          "first_section": "Wildcard Pattern",
+          "last_section": "Wildcard Pattern",
+          "n_sections": 1,
+          "char_start": 31478,
+          "char_end": 36259,
+          "chars": 4781,
+          "counted": true
+        },
+        {
+          "page": 13,
+          "first_section": "Value Patterns",
+          "last_section": "Value Patterns",
+          "n_sections": 1,
+          "char_start": 36261,
+          "char_end": 39100,
+          "chars": 2839,
+          "counted": true
+        },
+        {
+          "page": 14,
+          "first_section": "Group Patterns",
+          "last_section": "Sequence Patterns",
+          "n_sections": 2,
+          "char_start": 39102,
+          "char_end": 42382,
+          "chars": 3280,
+          "counted": true
+        },
+        {
+          "page": 15,
+          "first_section": "Mapping Patterns",
+          "last_section": "Mapping Patterns",
+          "n_sections": 1,
+          "char_start": 42384,
+          "char_end": 44382,
+          "chars": 1998,
+          "counted": true
+        },
+        {
+          "page": 16,
+          "first_section": "Class Patterns",
+          "last_section": "Class Patterns",
+          "n_sections": 1,
+          "char_start": 44384,
+          "char_end": 49907,
+          "chars": 5523,
+          "counted": true
+        },
+        {
+          "page": 17,
+          "first_section": "History and Context",
+          "last_section": "Reference Implementation",
+          "n_sections": 4,
+          "char_start": 49909,
+          "char_end": 55407,
+          "chars": 5498,
+          "counted": true
+        }
+      ],
+      "local_path": "starter/data/raw/pep-0635.rst"
+    },
+    {
+      "source_id": "pep-0636",
+      "title": "Structural Pattern Matching: Tutorial",
+      "source_path_or_url": "https://raw.githubusercontent.com/python/peps/main/peps/pep-0636.rst",
+      "license_or_permission": "Public domain or CC0-1.0-Universal (stated in the document's Copyright section)",
+      "pep_type": "Informational",
+      "status": "Final",
+      "created_year": 2020,
+      "python_version": "3.10",
+      "raw_chars": 25325,
+      "sha256": "9142442d0212ee6deb8b0ce9a2103c9804b7e77678236d2db97697738b47a262",
+      "units": [
+        {
+          "page": 1,
+          "first_section": "Abstract",
+          "last_section": "Matching sequences",
+          "n_sections": 3,
+          "char_start": 0,
+          "char_end": 2938,
+          "chars": 2938,
+          "counted": true
+        },
+        {
+          "page": 2,
+          "first_section": "Matching multiple patterns",
+          "last_section": "Matching specific values",
+          "n_sections": 2,
+          "char_start": 2940,
+          "char_end": 4904,
+          "chars": 1964,
+          "counted": true
+        },
+        {
+          "page": 3,
+          "first_section": "Matching multiple values",
+          "last_section": "Adding a wildcard",
+          "n_sections": 2,
+          "char_start": 4906,
+          "char_end": 6649,
+          "chars": 1743,
+          "counted": true
+        },
+        {
+          "page": 4,
+          "first_section": "Composing patterns",
+          "last_section": "Or patterns",
+          "n_sections": 2,
+          "char_start": 6651,
+          "char_end": 8923,
+          "chars": 2272,
+          "counted": true
+        },
+        {
+          "page": 5,
+          "first_section": "Capturing matched sub-patterns",
+          "last_section": "Capturing matched sub-patterns",
+          "n_sections": 1,
+          "char_start": 8925,
+          "char_end": 10444,
+          "chars": 1519,
+          "counted": true
+        },
+        {
+          "page": 6,
+          "first_section": "Adding conditions to patterns",
+          "last_section": "Adding a UI: Matching objects",
+          "n_sections": 2,
+          "char_start": 10446,
+          "char_end": 13447,
+          "chars": 3001,
+          "counted": true
+        },
+        {
+          "page": 7,
+          "first_section": "Matching positional attributes",
+          "last_section": "Matching positional attributes",
+          "n_sections": 1,
+          "char_start": 13449,
+          "char_end": 15029,
+          "chars": 1580,
+          "counted": true
+        },
+        {
+          "page": 8,
+          "first_section": "Matching against constants and enums",
+          "last_section": "Going to the cloud: Mappings",
+          "n_sections": 2,
+          "char_start": 15031,
+          "char_end": 17473,
+          "chars": 2442,
+          "counted": true
+        },
+        {
+          "page": 9,
+          "first_section": "Matching builtin classes",
+          "last_section": "Appendix A -- Quick Intro",
+          "n_sections": 2,
+          "char_start": 17475,
+          "char_end": 23724,
+          "chars": 6249,
+          "counted": true
+        }
+      ],
+      "local_path": "starter/data/raw/pep-0636.rst"
+    }
+  ]
+}

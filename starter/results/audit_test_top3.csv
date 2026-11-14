@@ -1,0 +1,776 @@
+strategy,id,rank,chunk_id,document_id,page,section,pep_type,auto_text_in_cited_unit,auto_pep_type_matches_header,auto_section_in_unit,applied_filter,is_evidence_hit,question,expected_answer,chunk_text
+A,t01,1,pep-0008:p011:c002,pep-0008,11,Package and Module Names,Process,True,True,True,null,True,What naming style should class names normally follow?,CapWords,"leading underscore
+(e.g. _socket).
+
+Class Names
+
+Class names should normally use the CapWords convention.
+
+The naming convention for functions may be used instead in cases where
+the interface is documented and used primarily as a callable.
+
+Note that there is a separate convention for builtin names: most builtin
+names are single words (or two words run together), with the CapWords
+convention used only for exception names and builtin constants.
+
+Type Variable Names
+
+Names of type variables introd"
+A,t01,2,pep-0008:p010:c001,pep-0008,10,Overriding Principle,Process,True,True,True,null,False,What naming style should class names normally follow?,CapWords,"blic parts of the API should
+follow conventions that reflect usage rather than implementation.
+
+Descriptive: Naming Styles
+
+There are a lot of different naming styles.  It helps to be able to
+recognize what naming style is being used, independently from what
+they are used for.
+
+The following naming styles are commonly distinguished:
+
+- b (single lowercase letter)
+- B (single uppercase letter)
+- lowercase
+- lower_case_with_underscores
+- UPPERCASE
+- UPPER_CASE_WITH_UNDERSCORES
+- CapitalizedWords ("
+A,t01,3,pep-0008:p013:c006,pep-0008,13,Designing for Inheritance,Process,True,True,True,null,False,What naming style should class names normally follow?,CapWords,"ith
+  double leading underscores and no trailing underscores.  This
+  invokes Python's name mangling algorithm, where the name of the
+  class is mangled into the attribute name.  This helps avoid
+  attribute name collisions should subclasses inadvertently contain
+  attributes with the same name.
+
+  Note 1: Note that only the simple class name is used in the mangled
+  name, so if a subclass chooses both the same class name and attribute
+  name, you can still get name collisions.
+
+  Note 2: Name m"
+A,t02,1,pep-0483:p002:c004,pep-0483,2,Subtype relationships,Informational,True,True,True,null,False,How do I declare a distinct UserId type built on int so the type checker treats it as separate from plain int?,"UserId = NewType('UserId', int)","# Naively, this should be safe...
+
+  my_list[-1] << 5     # ... but this fails
+
+There are two widespread approaches to *declare* subtype information
+to type checker.
+
+In nominal subtyping, the type tree is based on the class tree,
+i.e., UserID is considered a subtype of int.
+This approach should be used under control of the type checker,
+because in Python one can override attributes in an incompatible way::
+
+  class Base:
+      answer = '42' # type: str
+
+  class Derived(Base):
+      answer = 5 #"
+A,t02,2,pep-0484:p019:c004,pep-0484,19,NewType helper function,Standards Track,True,True,True,null,True,How do I declare a distinct UserId type built on int so the type checker treats it as separate from plain int?,"UserId = NewType('UserId', int)","le at runtime, NewType('Derived', Base) returns a dummy function
+that simply returns its argument. Type checkers require explicit casts
+from int where UserId is expected, while implicitly casting
+from UserId where int is expected. Examples::
+
+        UserId = NewType('UserId', int)
+
+        def name_by_id(user_id: UserId) -> str:
+            ...
+
+        UserId('user')          # Fails type check
+
+        name_by_id(42)          # Fails type check
+        name_by_id(UserId(42))  # OK
+
+        nu"
+A,t02,3,pep-0484:p023:c010,pep-0484,23,The typing Module,Standards Track,True,True,True,null,True,How do I declare a distinct UserId type built on int so the type checker treats it as separate from plain int?,"UserId = NewType('UserId', int)","ple
+  type.
+
+* NewType, used to create unique types with little runtime overhead
+  UserId = NewType('UserId', int)
+
+* cast(), described earlier
+
+* @no_type_check, a decorator to disable type checking per class or
+  function (see below)
+
+* @no_type_check_decorator, a decorator to create your own decorators
+  with the same meaning as @no_type_check (see below)
+
+* @type_check_only, a decorator only available during type checking
+  for use in stub files (see above); marks a class or function as
+  un"
+A,t03,1,pep-0483:p003:c000,pep-0483,3,Summary of gradual typing,Informational,True,True,True,null,True,Which new relation does gradual typing introduce that behaves like subtyping but is not transitive when Any is involved?,is-consistent-with,"Summary of gradual typing
+
+Gradual typing allows one to annotate only part of a program,
+thus leverage desirable aspects of both dynamic and static typing.
+
+We define a new relationship, is-consistent-with, which is similar to
+is-subtype-of, except it is not transitive when the new type Any is
+involved. (Neither relationship is symmetric.) Assigning a_value
+to a_variable is OK if the type of a_value is consistent with
+the type of a_variable. (Compare this to ""... if the type of a_value
+is a subt"
+A,t03,2,pep-0483:p003:c002,pep-0483,3,Summary of gradual typing,Informational,True,True,True,null,False,Which new relation does gradual typing introduce that behaves like subtyping but is not transitive when Any is involved?,is-consistent-with,"a subtype
+   of Any.)
+
+That's all! See Jeremy Siek's blog post What is Gradual
+Typing
+for a longer explanation and motivation. Any can be considered a type
+that has all values and all methods. Combined with the definition of
+subtyping above, this places Any partially at the top (it has all values)
+and bottom (it has all methods) of the type hierarchy. Contrast this to
+object -- it is not consistent with
+most types (e.g. you can't use an object() instance where an
+int is expected). IOW both Any a"
+A,t03,3,pep-0484:p001:c004,pep-0484,1,Abstract,Standards Track,True,True,True,null,False,Which new relation does gradual typing introduce that behaves like subtyping but is not transitive when Any is involved?,is-consistent-with,"in the metaclass
+(but its significance is primarily to an offline type checker).
+
+The type system supports unions, generic types, and a special type
+named Any which is consistent with (i.e. assignable to and from) all
+types.  This latter feature is taken from the idea of gradual typing.
+Gradual typing and the full type system are explained in PEP 483.
+
+Other approaches from which we have borrowed or to which ours can be
+compared and contrasted are described in PEP 482."
+A,t04,1,pep-0635:p015:c002,pep-0635,15,Mapping Patterns,Informational,True,True,True,null,False,Does a mapping pattern still match if the dictionary has additional keys?,"Yes, extra keys are ignored (unless captured with **rest)","or, i.e., passing a dictionary
+with extra keys somewhere will likely just work.
+Should it be
+necessary to impose an upper bound on the mapping and ensure that no
+additional keys are present, then the usual double-star-pattern **rest
+can be used.  The special case **_ with a wildcard, however, is not
+supported as it would not have any effect, but might lead to an incorrect
+understanding of the mapping pattern's semantics.
+
+To avoid overly expensive matching algorithms, keys must be literals or
+va"
+A,t04,2,pep-0635:p015:c001,pep-0635,15,Mapping Patterns,Informational,True,True,True,null,True,Does a mapping pattern still match if the dictionary has additional keys?,"Yes, extra keys are ignored (unless captured with **rest)","ing pattern reflects the common usage of dictionary lookup: it allows
+the user to extract some values from a mapping by means of constant/known
+keys and have the values match given subpatterns.
+Extra keys in the subject are ignored even if **rest is not present.
+This is different from sequence patterns, where extra items will cause a
+match to fail.  But mappings are actually different from sequences: they
+have natural structural sub-typing behavior, i.e., passing a dictionary
+with extra keys som"
+A,t04,3,pep-0634:p007:c000,pep-0634,7,Mapping Patterns,Standards Track,True,True,True,null,False,Does a mapping pattern still match if the dictionary has additional keys?,"Yes, extra keys are ignored (unless captured with **rest)","Mapping Patterns
+
+Syntax::
+
+  mapping_pattern: '{' [items_pattern] '}'
+  items_pattern: ','.key_value_pattern+ ','?
+  key_value_pattern:
+      | (literal_pattern | value_pattern) ':' pattern
+      | double_star_pattern
+  double_star_pattern: '**' capture_pattern
+
+(Note that **_ is disallowed by this syntax.)
+
+A mapping pattern may contain at most one double star pattern,
+and it must be last.
+
+A mapping pattern may not contain duplicate key values.
+(If all key patterns are literal patterns this i"
+A,t05,1,pep-0484:p013:c000,pep-0484,13,The Any type,Standards Track,True,True,True,null,True,Which special type is every type consistent with?,Any,"The Any type
+
+A special kind of type is Any.  Every type is consistent with
+Any.  It can be considered a type that has all values and all methods.
+Note that Any and builtin type object are completely different.
+
+When the type of a value is object, the type checker will reject
+almost all operations on it, and assigning it to a variable (or using
+it as a return value) of a more specialized type is a type error.  On
+the other hand, when a value has type Any, the type checker will
+allow all operatio"
+A,t05,2,pep-0483:p003:c001,pep-0483,3,Summary of gradual typing,Informational,True,True,True,null,False,Which special type is every type consistent with?,Any,"pare this to ""... if the type of a_value
+is a subtype of the type of a_variable"", which states one of the
+fundamentals of OO programming.) The is-consistent-with relationship is
+defined by three rules:
+
+-  A type t1 is consistent with a type t2 if t1 is a
+   subtype of t2. (But not the other way around.)
+-  Any is consistent with every type. (But Any is not a subtype
+   of every type.)
+-  Every type is consistent with Any. (But every type is not a subtype
+   of Any.)
+
+That's all! See Jeremy Siek"
+A,t05,3,pep-0483:p004:c003,pep-0483,4,Types vs. Classes,Informational,True,True,True,null,False,Which special type is every type consistent with?,Any,"ll of these will raise TypeError if they appear
+   in isinstance or issubclass (except for unparameterized generics).
+
+Fundamental building blocks
+
+-  Any. Every type is consistent with Any; and
+   it is also consistent with every type (see above).
+-  Union[t1, t2, ...]. Types that are subtype of at least one of
+   t1 etc. are subtypes of this.
+
+   *  Unions whose components are all subtypes of t1 etc. are subtypes
+      of this.
+      Example: Union[int, str] is a subtype of Union[int, float, s"
+B,t01,1,pep-0008:p011:c003,pep-0008,11,Class Names,Process,True,True,True,null,True,What naming style should class names normally follow?,CapWords,"Class Names
+
+Class names should normally use the CapWords convention.
+
+The naming convention for functions may be used instead in cases where
+the interface is documented and used primarily as a callable.
+
+Note that there is a separate convention for builtin names: most builtin
+names are single words (or two words run together), with the CapWords
+convention used only for exception names and builtin constants."
+B,t01,2,pep-0008:p010:c002,pep-0008,10,Descriptive: Naming Styles,Process,True,True,True,null,False,What naming style should class names normally follow?,CapWords,"Descriptive: Naming Styles
+
+There are a lot of different naming styles.  It helps to be able to
+recognize what naming style is being used, independently from what
+they are used for.
+
+The following naming styles are commonly distinguished:
+
+- b (single lowercase letter)
+- B (single uppercase letter)
+- lowercase
+- lower_case_with_underscores
+- UPPERCASE
+- UPPER_CASE_WITH_UNDERSCORES
+- CapitalizedWords (or CapWords, or CamelCase -- so named because
+  of the bumpy look of its letters).  This is also sometimes known
+  as StudlyCaps.
+
+Note: When using acronyms in CapWords, capitalize all the
+  letters of the acronym.  Thus HTTPServerError is better than
+  HttpServerError.
+- mixedCase (differs from CapitalizedWords by initial lowercase
+  character!)
+- Capitalized_Words_With_Underscores (ugly!)"
+B,t01,3,pep-0008:p013:c004,pep-0008,13,Designing for Inheritance,Process,True,True,True,null,False,What naming style should class names normally follow?,CapWords,"- If your class is intended to be subclassed, and you have attributes
+  that you do not want subclasses to use, consider naming them with
+  double leading underscores and no trailing underscores.  This
+  invokes Python's name mangling algorithm, where the name of the
+  class is mangled into the attribute name.  This helps avoid
+  attribute name collisions should subclasses inadvertently contain
+  attributes with the same name.
+
+Note 1: Note that only the simple class name is used in the mangled
+  name, so if a subclass chooses both the same class name and attribute
+  name, you can still get name collisions.
+
+Note 2: Name mangling can make certain uses, such as debugging and
+  __getattr__(), less convenient.  However the name mangling
+  algorithm is well documented and easy to perform manually.
+
+Note 3: Not everyone likes name mangling.  Try to balance the
+  need to avoid accidental name clashes with potential use by
+  advanced callers."
+B,t02,1,pep-0483:p002:c002,pep-0483,2,Subtype relationships,Informational,True,True,True,null,False,How do I declare a distinct UserId type built on int so the type checker treats it as separate from plain int?,"UserId = NewType('UserId', int)","There are two widespread approaches to *declare* subtype information
+to type checker.
+
+In nominal subtyping, the type tree is based on the class tree,
+i.e., UserID is considered a subtype of int.
+This approach should be used under control of the type checker,
+because in Python one can override attributes in an incompatible way::
+
+class Base:
+      answer = '42' # type: str
+
+class Derived(Base):
+      answer = 5 # should be marked as error by type checker
+
+In structural subtyping the subtype relation is deduced from the
+declared methods, i.e., UserID and int would be considered the same type.
+While this may occasionally cause confusion,
+structural subtyping is considered more flexible.
+We strive to provide support for both approaches, so that
+structural information can be used in addition to nominal subtyping."
+B,t02,2,pep-0484:p019:c003,pep-0484,19,NewType helper function,Standards Track,True,True,True,null,False,How do I declare a distinct UserId type built on int so the type checker treats it as separate from plain int?,"UserId = NewType('UserId', int)","name_by_id(42)          # Fails type check
+        name_by_id(UserId(42))  # OK
+
+num = UserId(5) + 1     # type: int
+
+NewType accepts exactly two arguments: a name for the new unique type,
+and a base class. The latter should be a proper class (i.e.,
+not a type construct like Union, etc.), or another unique type created
+by calling NewType. The function returned by NewType
+accepts only one argument; this is equivalent to supporting only one
+constructor accepting an instance of the base class (see above). Example::
+
+class PacketId:
+      def __init__(self, major: int, minor: int) -> None:
+          self._major = major
+          self._minor = minor
+
+TcpPacketId = NewType('TcpPacketId', PacketId)
+
+packet = PacketId(100, 100)
+  tcp_packet = TcpPacketId(packet)  # OK
+
+tcp_packet = TcpPacketId(127, 0)  # Fails in type checker and at runtime
+
+Both isinstance and issubclass, as well as subclassing will fail
+for NewType('Derived', Base) since function objects don't support
+these operations."
+B,t02,3,pep-0484:p014:c001,pep-0484,14,The type of class objects,Standards Track,True,True,True,null,False,How do I declare a distinct UserId type built on int so the type checker treats it as separate from plain int?,"UserId = NewType('UserId', int)","However using Type[] and a type variable with an upper bound we
+can do much better::
+
+U = TypeVar('U', bound=User)
+  def new_user(user_class: Type[U]) -> U:
+      ...
+
+Now when we call new_user() with a specific subclass of User a
+type checker will infer the correct type of the result::
+
+joe = new_user(BasicUser)  # Inferred type is BasicUser
+
+The value corresponding to Type[C] must be an actual class object
+that's a subtype of C, not a special form.  In other words, in the
+above example calling e.g. new_user(Union[BasicUser, ProUser]) is
+rejected by the type checker (in addition to failing at runtime
+because you can't instantiate a union).
+
+Note that it is legal to use a union of classes as the parameter for
+Type[], as in::
+
+def new_non_team_user(user_class: Type[Union[BasicUser, ProUser]]):
+      user = new_user(user_class)
+      ...
+
+However the actual argument passed in at runtime must still be a
+concrete class object, e.g. in the above example::"
+B,t03,1,pep-0483:p003:c000,pep-0483,3,Summary of gradual typing,Informational,True,True,True,null,True,Which new relation does gradual typing introduce that behaves like subtyping but is not transitive when Any is involved?,is-consistent-with,"Summary of gradual typing
+
+Gradual typing allows one to annotate only part of a program,
+thus leverage desirable aspects of both dynamic and static typing.
+
+We define a new relationship, is-consistent-with, which is similar to
+is-subtype-of, except it is not transitive when the new type Any is
+involved. (Neither relationship is symmetric.) Assigning a_value
+to a_variable is OK if the type of a_value is consistent with
+the type of a_variable. (Compare this to ""... if the type of a_value
+is a subtype of the type of a_variable"", which states one of the
+fundamentals of OO programming.) The is-consistent-with relationship is
+defined by three rules:
+
+-  A type t1 is consistent with a type t2 if t1 is a
+   subtype of t2. (But not the other way around.)
+-  Any is consistent with every type. (But Any is not a subtype
+   of every type.)
+-  Every type is consistent with Any. (But every type is not a subtype
+   of Any.)"
+B,t03,2,pep-0483:p001:c001,pep-0483,1,Introduction,Informational,True,True,True,null,False,Which new relation does gradual typing introduce that behaves like subtyping but is not transitive when Any is involved?,is-consistent-with,"Introduction
+
+This document lays out the theory of the new type hinting proposal for
+Python 3.5. It's not quite a full proposal or specification because
+there are many details that need to be worked out, but it lays out the
+theory without which it is hard to discuss more detailed specifications.
+We start by recalling basic concepts of type theory; then we explain
+gradual typing; then we state some general rules and
+define the new special types (such as Union) that can be used
+in annotations; and finally we define the approach to generic types
+and pragmatic aspects of type hinting."
+B,t03,3,pep-0483:p003:c001,pep-0483,3,Summary of gradual typing,Informational,True,True,True,null,False,Which new relation does gradual typing introduce that behaves like subtyping but is not transitive when Any is involved?,is-consistent-with,"That's all! See Jeremy Siek's blog post What is Gradual
+Typing
+for a longer explanation and motivation. Any can be considered a type
+that has all values and all methods. Combined with the definition of
+subtyping above, this places Any partially at the top (it has all values)
+and bottom (it has all methods) of the type hierarchy. Contrast this to
+object -- it is not consistent with
+most types (e.g. you can't use an object() instance where an
+int is expected). IOW both Any and object mean
+""any type is allowed"" when used to annotate an argument, but only Any
+can be passed no matter what type is expected (in essence, Any
+declares a fallback to dynamic typing and shuts up complaints
+from the static checker).
+
+Here's an example showing how these rules work out in practice:
+
+Say we have an Employee class, and a subclass Manager::
+
+class Employee: ...
+  class Manager(Employee): ...
+
+Let's say variable worker is declared with type Employee::
+
+worker = Employee()  # type: Employee"
+B,t04,1,pep-0635:p015:c001,pep-0635,15,Mapping Patterns,Informational,True,True,True,null,True,Does a mapping pattern still match if the dictionary has additional keys?,"Yes, extra keys are ignored (unless captured with **rest)","The mapping pattern reflects the common usage of dictionary lookup: it allows
+the user to extract some values from a mapping by means of constant/known
+keys and have the values match given subpatterns.
+Extra keys in the subject are ignored even if **rest is not present.
+This is different from sequence patterns, where extra items will cause a
+match to fail.  But mappings are actually different from sequences: they
+have natural structural sub-typing behavior, i.e., passing a dictionary
+with extra keys somewhere will likely just work.
+Should it be
+necessary to impose an upper bound on the mapping and ensure that no
+additional keys are present, then the usual double-star-pattern **rest
+can be used.  The special case **_ with a wildcard, however, is not
+supported as it would not have any effect, but might lead to an incorrect
+understanding of the mapping pattern's semantics.
+
+To avoid overly expensive matching algorithms, keys must be literals or
+value patterns."
+B,t04,2,pep-0634:p007:c000,pep-0634,7,Mapping Patterns,Standards Track,True,True,True,null,False,Does a mapping pattern still match if the dictionary has additional keys?,"Yes, extra keys are ignored (unless captured with **rest)","Mapping Patterns
+
+Syntax::
+
+mapping_pattern: '{' [items_pattern] '}'
+  items_pattern: ','.key_value_pattern+ ','?
+  key_value_pattern:
+      | (literal_pattern | value_pattern) ':' pattern
+      | double_star_pattern
+  double_star_pattern: '**' capture_pattern
+
+(Note that **_ is disallowed by this syntax.)
+
+A mapping pattern may contain at most one double star pattern,
+and it must be last.
+
+A mapping pattern may not contain duplicate key values.
+(If all key patterns are literal patterns this is considered a
+syntax error; otherwise this is a runtime error and will
+raise ValueError.)
+
+For a mapping pattern to succeed the subject must be a mapping,
+where being a mapping is defined as its class being one of the following:"
+B,t04,3,pep-0634:p007:c002,pep-0634,7,Mapping Patterns,Standards Track,True,True,True,null,False,Does a mapping pattern still match if the dictionary has additional keys?,"Yes, extra keys are ignored (unless captured with **rest)","Key-value pairs are matched using the two-argument form of the
+subject's get() method.  As a consequence, matched key-value pairs
+must already be present in the mapping, and not created on-the-fly by
+__missing__ or __getitem__.  For example,
+collections.defaultdict instances will only be matched by patterns
+with keys that were already present when the match statement was
+entered."
+B,t05,1,pep-0484:p013:c000,pep-0484,13,The Any type,Standards Track,True,True,True,null,True,Which special type is every type consistent with?,Any,"The Any type
+
+A special kind of type is Any.  Every type is consistent with
+Any.  It can be considered a type that has all values and all methods.
+Note that Any and builtin type object are completely different.
+
+When the type of a value is object, the type checker will reject
+almost all operations on it, and assigning it to a variable (or using
+it as a return value) of a more specialized type is a type error.  On
+the other hand, when a value has type Any, the type checker will
+allow all operations on it, and a value of type Any can be assigned
+to a variable (or used as a return value) of a more constrained type.
+
+A function parameter without an annotation is assumed to be annotated with
+Any. If a generic type is used without specifying type parameters,
+they are assumed to be Any::
+
+from typing import Mapping
+
+def use_map(m: Mapping) -> None:  # Same as Mapping[Any, Any]
+      ..."
+B,t05,2,pep-0483:p003:c000,pep-0483,3,Summary of gradual typing,Informational,True,True,True,null,False,Which special type is every type consistent with?,Any,"Summary of gradual typing
+
+Gradual typing allows one to annotate only part of a program,
+thus leverage desirable aspects of both dynamic and static typing.
+
+We define a new relationship, is-consistent-with, which is similar to
+is-subtype-of, except it is not transitive when the new type Any is
+involved. (Neither relationship is symmetric.) Assigning a_value
+to a_variable is OK if the type of a_value is consistent with
+the type of a_variable. (Compare this to ""... if the type of a_value
+is a subtype of the type of a_variable"", which states one of the
+fundamentals of OO programming.) The is-consistent-with relationship is
+defined by three rules:
+
+-  A type t1 is consistent with a type t2 if t1 is a
+   subtype of t2. (But not the other way around.)
+-  Any is consistent with every type. (But Any is not a subtype
+   of every type.)
+-  Every type is consistent with Any. (But every type is not a subtype
+   of Any.)"
+B,t05,3,pep-0483:p004:c002,pep-0483,4,Fundamental building blocks,Informational,True,True,True,null,False,Which special type is every type consistent with?,Any,"Fundamental building blocks
+
+-  Any. Every type is consistent with Any; and
+   it is also consistent with every type (see above).
+-  Union[t1, t2, ...]. Types that are subtype of at least one of
+   t1 etc. are subtypes of this.
+
+*  Unions whose components are all subtypes of t1 etc. are subtypes
+      of this.
+      Example: Union[int, str] is a subtype of Union[int, float, str].
+   *  The order of the arguments doesn't matter.
+      Example: Union[int, str] == Union[str, int].
+   *  If ti is itself a Union the result is flattened.
+      Example: Union[int, Union[float, str]] == Union[int, float, str].
+   *  If ti and tj have a subtype relationship,
+      the less specific type survives.
+      Example: Union[Employee, Manager] == Union[Employee].
+   *  Union[t1] returns just t1. Union[] is illegal,
+      so is Union[()]
+   *  Corollary: Union[..., object, ...] returns object."
+C,t01,1,pep-0008:p011:c003,pep-0008,11,Class Names,Process,True,True,True,null,True,What naming style should class names normally follow?,CapWords,"Class Names
+
+Class names should normally use the CapWords convention.
+
+The naming convention for functions may be used instead in cases where
+the interface is documented and used primarily as a callable.
+
+Note that there is a separate convention for builtin names: most builtin
+names are single words (or two words run together), with the CapWords
+convention used only for exception names and builtin constants."
+C,t01,2,pep-0008:p010:c002,pep-0008,10,Descriptive: Naming Styles,Process,True,True,True,null,False,What naming style should class names normally follow?,CapWords,"Descriptive: Naming Styles
+
+There are a lot of different naming styles.  It helps to be able to
+recognize what naming style is being used, independently from what
+they are used for.
+
+The following naming styles are commonly distinguished:
+
+- b (single lowercase letter)
+- B (single uppercase letter)
+- lowercase
+- lower_case_with_underscores
+- UPPERCASE
+- UPPER_CASE_WITH_UNDERSCORES
+- CapitalizedWords (or CapWords, or CamelCase -- so named because
+  of the bumpy look of its letters).  This is also sometimes known
+  as StudlyCaps.
+
+Note: When using acronyms in CapWords, capitalize all the
+  letters of the acronym.  Thus HTTPServerError is better than
+  HttpServerError.
+- mixedCase (differs from CapitalizedWords by initial lowercase
+  character!)
+- Capitalized_Words_With_Underscores (ugly!)"
+C,t01,3,pep-0008:p013:c004,pep-0008,13,Designing for Inheritance,Process,True,True,True,null,False,What naming style should class names normally follow?,CapWords,"- If your class is intended to be subclassed, and you have attributes
+  that you do not want subclasses to use, consider naming them with
+  double leading underscores and no trailing underscores.  This
+  invokes Python's name mangling algorithm, where the name of the
+  class is mangled into the attribute name.  This helps avoid
+  attribute name collisions should subclasses inadvertently contain
+  attributes with the same name.
+
+Note 1: Note that only the simple class name is used in the mangled
+  name, so if a subclass chooses both the same class name and attribute
+  name, you can still get name collisions.
+
+Note 2: Name mangling can make certain uses, such as debugging and
+  __getattr__(), less convenient.  However the name mangling
+  algorithm is well documented and easy to perform manually.
+
+Note 3: Not everyone likes name mangling.  Try to balance the
+  need to avoid accidental name clashes with potential use by
+  advanced callers."
+C,t02,1,pep-0483:p002:c002,pep-0483,2,Subtype relationships,Informational,True,True,True,null,False,How do I declare a distinct UserId type built on int so the type checker treats it as separate from plain int?,"UserId = NewType('UserId', int)","There are two widespread approaches to *declare* subtype information
+to type checker.
+
+In nominal subtyping, the type tree is based on the class tree,
+i.e., UserID is considered a subtype of int.
+This approach should be used under control of the type checker,
+because in Python one can override attributes in an incompatible way::
+
+class Base:
+      answer = '42' # type: str
+
+class Derived(Base):
+      answer = 5 # should be marked as error by type checker
+
+In structural subtyping the subtype relation is deduced from the
+declared methods, i.e., UserID and int would be considered the same type.
+While this may occasionally cause confusion,
+structural subtyping is considered more flexible.
+We strive to provide support for both approaches, so that
+structural information can be used in addition to nominal subtyping."
+C,t02,2,pep-0484:p019:c003,pep-0484,19,NewType helper function,Standards Track,True,True,True,null,False,How do I declare a distinct UserId type built on int so the type checker treats it as separate from plain int?,"UserId = NewType('UserId', int)","name_by_id(42)          # Fails type check
+        name_by_id(UserId(42))  # OK
+
+num = UserId(5) + 1     # type: int
+
+NewType accepts exactly two arguments: a name for the new unique type,
+and a base class. The latter should be a proper class (i.e.,
+not a type construct like Union, etc.), or another unique type created
+by calling NewType. The function returned by NewType
+accepts only one argument; this is equivalent to supporting only one
+constructor accepting an instance of the base class (see above). Example::
+
+class PacketId:
+      def __init__(self, major: int, minor: int) -> None:
+          self._major = major
+          self._minor = minor
+
+TcpPacketId = NewType('TcpPacketId', PacketId)
+
+packet = PacketId(100, 100)
+  tcp_packet = TcpPacketId(packet)  # OK
+
+tcp_packet = TcpPacketId(127, 0)  # Fails in type checker and at runtime
+
+Both isinstance and issubclass, as well as subclassing will fail
+for NewType('Derived', Base) since function objects don't support
+these operations."
+C,t02,3,pep-0484:p014:c001,pep-0484,14,The type of class objects,Standards Track,True,True,True,null,False,How do I declare a distinct UserId type built on int so the type checker treats it as separate from plain int?,"UserId = NewType('UserId', int)","However using Type[] and a type variable with an upper bound we
+can do much better::
+
+U = TypeVar('U', bound=User)
+  def new_user(user_class: Type[U]) -> U:
+      ...
+
+Now when we call new_user() with a specific subclass of User a
+type checker will infer the correct type of the result::
+
+joe = new_user(BasicUser)  # Inferred type is BasicUser
+
+The value corresponding to Type[C] must be an actual class object
+that's a subtype of C, not a special form.  In other words, in the
+above example calling e.g. new_user(Union[BasicUser, ProUser]) is
+rejected by the type checker (in addition to failing at runtime
+because you can't instantiate a union).
+
+Note that it is legal to use a union of classes as the parameter for
+Type[], as in::
+
+def new_non_team_user(user_class: Type[Union[BasicUser, ProUser]]):
+      user = new_user(user_class)
+      ...
+
+However the actual argument passed in at runtime must still be a
+concrete class object, e.g. in the above example::"
+C,t03,1,pep-0483:p003:c000,pep-0483,3,Summary of gradual typing,Informational,True,True,True,null,True,Which new relation does gradual typing introduce that behaves like subtyping but is not transitive when Any is involved?,is-consistent-with,"Summary of gradual typing
+
+Gradual typing allows one to annotate only part of a program,
+thus leverage desirable aspects of both dynamic and static typing.
+
+We define a new relationship, is-consistent-with, which is similar to
+is-subtype-of, except it is not transitive when the new type Any is
+involved. (Neither relationship is symmetric.) Assigning a_value
+to a_variable is OK if the type of a_value is consistent with
+the type of a_variable. (Compare this to ""... if the type of a_value
+is a subtype of the type of a_variable"", which states one of the
+fundamentals of OO programming.) The is-consistent-with relationship is
+defined by three rules:
+
+-  A type t1 is consistent with a type t2 if t1 is a
+   subtype of t2. (But not the other way around.)
+-  Any is consistent with every type. (But Any is not a subtype
+   of every type.)
+-  Every type is consistent with Any. (But every type is not a subtype
+   of Any.)"
+C,t03,2,pep-0483:p001:c001,pep-0483,1,Introduction,Informational,True,True,True,null,False,Which new relation does gradual typing introduce that behaves like subtyping but is not transitive when Any is involved?,is-consistent-with,"Introduction
+
+This document lays out the theory of the new type hinting proposal for
+Python 3.5. It's not quite a full proposal or specification because
+there are many details that need to be worked out, but it lays out the
+theory without which it is hard to discuss more detailed specifications.
+We start by recalling basic concepts of type theory; then we explain
+gradual typing; then we state some general rules and
+define the new special types (such as Union) that can be used
+in annotations; and finally we define the approach to generic types
+and pragmatic aspects of type hinting."
+C,t03,3,pep-0483:p003:c001,pep-0483,3,Summary of gradual typing,Informational,True,True,True,null,False,Which new relation does gradual typing introduce that behaves like subtyping but is not transitive when Any is involved?,is-consistent-with,"That's all! See Jeremy Siek's blog post What is Gradual
+Typing
+for a longer explanation and motivation. Any can be considered a type
+that has all values and all methods. Combined with the definition of
+subtyping above, this places Any partially at the top (it has all values)
+and bottom (it has all methods) of the type hierarchy. Contrast this to
+object -- it is not consistent with
+most types (e.g. you can't use an object() instance where an
+int is expected). IOW both Any and object mean
+""any type is allowed"" when used to annotate an argument, but only Any
+can be passed no matter what type is expected (in essence, Any
+declares a fallback to dynamic typing and shuts up complaints
+from the static checker).
+
+Here's an example showing how these rules work out in practice:
+
+Say we have an Employee class, and a subclass Manager::
+
+class Employee: ...
+  class Manager(Employee): ...
+
+Let's say variable worker is declared with type Employee::
+
+worker = Employee()  # type: Employee"
+C,t04,1,pep-0635:p015:c001,pep-0635,15,Mapping Patterns,Informational,True,True,True,"{""pep_type"": ""Informational""}",True,Does a mapping pattern still match if the dictionary has additional keys?,"Yes, extra keys are ignored (unless captured with **rest)","The mapping pattern reflects the common usage of dictionary lookup: it allows
+the user to extract some values from a mapping by means of constant/known
+keys and have the values match given subpatterns.
+Extra keys in the subject are ignored even if **rest is not present.
+This is different from sequence patterns, where extra items will cause a
+match to fail.  But mappings are actually different from sequences: they
+have natural structural sub-typing behavior, i.e., passing a dictionary
+with extra keys somewhere will likely just work.
+Should it be
+necessary to impose an upper bound on the mapping and ensure that no
+additional keys are present, then the usual double-star-pattern **rest
+can be used.  The special case **_ with a wildcard, however, is not
+supported as it would not have any effect, but might lead to an incorrect
+understanding of the mapping pattern's semantics.
+
+To avoid overly expensive matching algorithms, keys must be literals or
+value patterns."
+C,t04,2,pep-0636:p009:c006,pep-0636,9,Appendix A -- Quick Intro,Informational,True,True,True,"{""pep_type"": ""Informational""}",True,Does a mapping pattern still match if the dictionary has additional keys?,"Yes, extra keys are ignored (unless captured with **rest)","- Sequence patterns support wildcards: [x, y, *rest] and (x, y,
+  *rest) work similar to wildcards in unpacking assignments.  The
+  name after * may also be _, so (x, y, *_) matches a sequence
+  of at least two items without binding the remaining items.
+
+- Mapping patterns: {""bandwidth"": b, ""latency"": l} captures the
+  ""bandwidth"" and ""latency"" values from a dict.  Unlike sequence
+  patterns, extra keys are ignored.  A wildcard **rest is also
+  supported.  (But **_ would be redundant, so it is not allowed.)
+
+- Subpatterns may be captured using the as keyword::
+
+case (Point(x1, y1), Point(x2, y2) as p2): ...
+
+- Most literals are compared by equality, however the singletons True,
+  False and None are compared by identity.
+
+- Patterns may use named constants.  These must be dotted names
+  to prevent them from being interpreted as capture variable::
+
+from enum import Enum
+      class Color(Enum):
+          RED = 0
+          GREEN = 1
+          BLUE = 2"
+C,t04,3,pep-0635:p014:c003,pep-0635,14,Sequence Patterns,Informational,True,True,True,"{""pep_type"": ""Informational""}",False,Does a mapping pattern still match if the dictionary has additional keys?,"Yes, extra keys are ignored (unless captured with **rest)","A sequence pattern cannot just iterate through any iterable object.  The
+consumption of elements from the iteration would have to be undone if the
+overall pattern fails, which is not feasible.
+
+To identify sequences we cannot rely on len() and subscripting and
+slicing alone, because sequences share these protocols with mappings
+(e.g. dict) in this regard.  It would be surprising if a sequence
+pattern also matched a dictionaries or other objects implementing
+the mapping protocol (i.e. __getitem__).  The interpreter therefore
+performs an instance check to ensure that the subject in question really
+is a sequence (of known type).  (As an optimization of the most common
+case, if the subject is exactly a list or a tuple, the instance check
+can be skipped.)"
+C,t05,1,pep-0484:p013:c000,pep-0484,13,The Any type,Standards Track,True,True,True,"{""pep_type"": ""Standards Track""}",True,Which special type is every type consistent with?,Any,"The Any type
+
+A special kind of type is Any.  Every type is consistent with
+Any.  It can be considered a type that has all values and all methods.
+Note that Any and builtin type object are completely different.
+
+When the type of a value is object, the type checker will reject
+almost all operations on it, and assigning it to a variable (or using
+it as a return value) of a more specialized type is a type error.  On
+the other hand, when a value has type Any, the type checker will
+allow all operations on it, and a value of type Any can be assigned
+to a variable (or used as a return value) of a more constrained type.
+
+A function parameter without an annotation is assumed to be annotated with
+Any. If a generic type is used without specifying type parameters,
+they are assumed to be Any::
+
+from typing import Mapping
+
+def use_map(m: Mapping) -> None:  # Same as Mapping[Any, Any]
+      ..."
+C,t05,2,pep-0484:p001:c002,pep-0484,1,Abstract,Standards Track,True,True,True,"{""pep_type"": ""Standards Track""}",False,Which special type is every type consistent with?,Any,"The type system supports unions, generic types, and a special type
+named Any which is consistent with (i.e. assignable to and from) all
+types.  This latter feature is taken from the idea of gradual typing.
+Gradual typing and the full type system are explained in PEP 483.
+
+Other approaches from which we have borrowed or to which ours can be
+compared and contrasted are described in PEP 482."
+C,t05,3,pep-0484:p003:c002,pep-0484,3,Acceptable type hints,Standards Track,True,True,True,"{""pep_type"": ""Standards Track""}",False,Which special type is every type consistent with?,Any,"Annotations should be kept simple or static analysis tools may not be
+able to interpret the values. For example, dynamically computed types
+are unlikely to be understood.  (This is an
+intentionally somewhat vague requirement, specific inclusions and
+exclusions may be added to future versions of this PEP as warranted by
+the discussion.)
+
+In addition to the above, the following special constructs defined
+below may be used: None, Any, Union, Tuple,
+Callable, all ABCs and stand-ins for concrete classes exported
+from typing (e.g. Sequence and Dict), type variables, and
+type aliases.
+
+All newly introduced names used to support features described in
+following sections (such as Any and Union) are available in
+the typing module."

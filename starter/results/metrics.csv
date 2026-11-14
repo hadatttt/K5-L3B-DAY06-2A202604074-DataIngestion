@@ -1,0 +1,10 @@
+strategy,split,n,hit1,hit3,hit1_rate,hit3_rate,filter_questions_with_filter_applied,filter_compliant,split_evidence_cases,query_seconds_all_questions
+A,dev,15,7,11,0.467,0.733,0,0,3,0.43
+A,test,5,3,5,0.6,1.0,0,0,0,0.43
+A,all,20,10,16,0.5,0.8,0,0,3,0.43
+B,dev,15,10,11,0.667,0.733,0,0,4,0.43
+B,test,5,4,4,0.8,0.8,0,0,1,0.43
+B,all,20,14,15,0.7,0.75,0,0,5,0.43
+C,dev,15,10,11,0.667,0.733,3,3,4,0.44
+C,test,5,4,4,0.8,0.8,2,2,1,0.44
+C,all,20,14,15,0.7,0.75,5,5,5,0.44

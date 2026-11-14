@@ -1,0 +1,42 @@
+{
+  "labeller": "Labels drafted by an AI assistant (Claude) on behalf of the student, reading the exported chunk text; the student must re-read results/audit_*.csv and confirm or change each label before submission. Risk of bias: labeller also built the pipeline and saw Hit scores before labelling.",
+  "coherence": {
+    "scale": "0 = cut mid-idea / missing subject so not understandable; 1 = partly understandable, missing context; 2 = self-contained, keeps the whole idea",
+    "sampling": "Fixed before scoring: middle character of unit 2 of the first 10 documents (sorted) with >=2 units. C uses B's chunks so C = B.",
+    "labels": [
+      {"sample": "s01", "position": "pep-0001 p2", "A": 1, "A_reason": "starts mid-sentence ('be conducted via...'), ends mid-word ('or t')", "B": 2, "B_reason": "whole 'Start with an idea' section"},
+      {"sample": "s02", "position": "pep-0008 p2", "A": 1, "A_reason": "starts inside a code example, ends mid-word ('inde')", "B": 1, "B_reason": "full paragraph but only the first of the 'acceptable options' examples"},
+      {"sample": "s03", "position": "pep-0257 p2", "A": 0, "A_reason": "subject 'The docstring of a script' cut off; 'should be usable as...' has no subject", "B": 2, "B_reason": "script + module docstring paragraphs complete"},
+      {"sample": "s04", "position": "pep-0483 p2", "A": 1, "A_reason": "starts 's are subtype of real numbers', example cut before conclusion", "B": 2, "B_reason": "both examples complete incl. the List[int] counter-example"},
+      {"sample": "s05", "position": "pep-0484 p2", "A": 1, "A_reason": "the exception for self/cls is cut ('If it is')", "B": 2, "B_reason": "heading + whole 'meaning of annotations' rule incl. exception"},
+      {"sample": "s06", "position": "pep-0526 p2", "A": 0, "A_reason": "starts 'ype: Logger', the list of downsides has no lead-in", "B": 2, "B_reason": "heading + rationale list; last bullet's example in next chunk but bullet itself clear"},
+      {"sample": "s07", "position": "pep-0572 p2", "A": 1, "A_reason": "starts 'ever large or small', ends 'searched t'", "B": 1, "B_reason": "complete argument but ends at 'instead of writing::' before the example"},
+      {"sample": "s08", "position": "pep-0634 p2", "A": 1, "A_reason": "fragment of previous section at start, ends 'The usual rule'", "B": 2, "B_reason": "whole 'Match Semantics' section"},
+      {"sample": "s09", "position": "pep-0635 p2", "A": 1, "A_reason": "starts 'f the class hierarchy', ends 'same clas'", "B": 2, "B_reason": "complete paragraph about Visitor pattern"},
+      {"sample": "s10", "position": "pep-0636 p2", "A": 1, "A_reason": "code example cut after case [\"", "B": 2, "B_reason": "heading, explanation, full example and its explanation"}
+    ],
+    "summary": {"A": {"sum": 8, "n": 10, "mean": 0.8}, "B": {"sum": 18, "n": 10, "mean": 1.8}, "C": {"sum": 18, "n": 10, "mean": 1.8, "note": "same chunks as B"}}
+  },
+  "metadata": {
+    "checked": "5 test questions x top-3 = 15 records per strategy: document_id/source, page (chunk text found verbatim in the cited unit), pep_type (vs PEP header), section (heading exists in that unit and is the heading in effect at chunk start).",
+    "summary": {"A": "15/15", "B": "15/15", "C": "15/15"},
+    "filter_compliance_test": {"A": "N/A (no filter applied)", "B": "N/A (no filter applied)", "C": "2/2 test questions with filter (6/6 records)"},
+    "filter_compliance_all_filter_questions": {"C": "5/5 questions, 15/15 records", "B_if_filter_were_required": "0/5 questions fully compliant (7/15 records in scope)", "A_if_filter_were_required": "1/5 questions fully compliant (10/15 records)"},
+    "issues": [
+      "A t01 rank1 pep-0008:p011:c002: section='Package and Module Names' is correct by definition (heading at chunk start) but the useful content is under 'Class Names' -> misleading for a human; 117/877 A chunks span >1 section vs 7/532 for B.",
+      "A t05 rank3 pep-0483:p004:c003: section='Types vs. Classes' while the relevant text is under 'Fundamental building blocks'.",
+      "page is a synthetic unit index (>=1500 chars), not a printed page: traceable via data/manifest.json char ranges but not citeable like a PDF page."
+    ]
+  },
+  "grounding": {
+    "scale": "0 = no evidence in top-3; 1 = evidence present but missing a needed condition/context; 2 = enough to answer and trace the source",
+    "labels": [
+      {"id": "t01", "A": 2, "B": 2, "C": 2, "reason": "'Class names should normally use the CapWords convention.' in rank 1 for all"},
+      {"id": "t02", "A": 2, "B": 1, "C": 1, "reason": "A rank2/3 contain the declaration UserId = NewType('UserId', int). B/C only retrieve the usage examples + 'NewType accepts exactly two arguments: a name... and a base class' -> answer inferable but the exact declaration line is missing"},
+      {"id": "t03", "A": 2, "B": 2, "C": 2, "reason": "is-consistent-with definition in rank 1 (pep-0483 p3)"},
+      {"id": "t04", "A": 2, "B": 2, "C": 2, "reason": "'Extra keys in the subject are ignored even if **rest is not present' + **rest condition retrieved"},
+      {"id": "t05", "A": 2, "B": 2, "C": 2, "reason": "'Every type is consistent with Any.' rank 1 (pep-0484 p13)"}
+    ],
+    "summary": {"A": {"0": 0, "1": 0, "2": 5, "mean": 2.0}, "B": {"0": 0, "1": 1, "2": 4, "mean": 1.8}, "C": {"0": 0, "1": 1, "2": 4, "mean": 1.8}}
+  }
+}
