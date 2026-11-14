@@ -1,5 +1,5 @@
 {
-  "labeller": "Labels drafted by an AI assistant (Claude) on behalf of the student, reading the exported chunk text; the student must re-read results/audit_*.csv and confirm or change each label before submission. Risk of bias: labeller also built the pipeline and saw Hit scores before labelling.",
+  "labeller": "Labels drafted by an AI assistant (Claude) from the exported chunk text, then reviewed by the student (Ha Van Khanh Dat), who confirmed all labels unchanged. Risk of bias: labeller also built the pipeline and saw Hit scores before labelling.",
   "coherence": {
     "scale": "0 = cut mid-idea / missing subject so not understandable; 1 = partly understandable, missing context; 2 = self-contained, keeps the whole idea",
     "sampling": "Fixed before scoring: middle character of unit 2 of the first 10 documents (sorted) with >=2 units. C uses B's chunks so C = B.",
