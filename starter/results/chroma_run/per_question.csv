@@ -1,0 +1,61 @@
+strategy,id,split,type,filter_applied,hit@1,hit@3,first_hit_rank,top1_chunk,top2_chunk,top3_chunk,split_evidence_on_gold_page
+A,q01,dev,direct,null,0,1,3,pep-0008:p003:c002,pep-0008:p001:c002,pep-0008:p003:c000,1
+A,q02,dev,condition,null,1,1,1,pep-0008:p003:c002,pep-0008:p009:c001,pep-0008:p003:c003,1
+A,q03,dev,direct,null,0,1,2,pep-0008:p003:c000,pep-0008:p002:c000,pep-0635:p004:c006,0
+A,q04,dev,paraphrase,null,0,0,,pep-0008:p003:c003,pep-0008:p002:c006,pep-0008:p008:c001,0
+A,q05,dev,paraphrase,null,0,0,,pep-0008:p014:c013,pep-0572:p004:c008,pep-0008:p014:c009,1
+A,q06,dev,direct,null,1,1,1,pep-0008:p005:c001,pep-0008:p014:c002,pep-0008:p005:c002,1
+A,q07,dev,paraphrase,null,1,1,1,pep-0257:p002:c000,pep-0257:p002:c011,pep-0257:p002:c003,1
+A,q08,dev,direct,null,1,1,1,pep-0001:p001:c004,pep-0001:p001:c000,pep-0001:p001:c005,1
+A,q09,dev,condition,null,1,1,1,pep-0001:p003:c000,pep-0001:p005:c004,pep-0001:p009:c001,0
+A,q10,dev,direct,null,0,0,,pep-0484:p020:c000,pep-0008:p015:c003,pep-0484:p022:c002,1
+A,q11,dev,direct,null,0,1,3,pep-0526:p005:c004,pep-0526:p007:c002,pep-0526:p005:c001,1
+A,q12,dev,exception,null,0,0,,pep-0572:p013:c000,pep-0572:p003:c008,pep-0572:p003:c004,1
+A,q13,dev,metadata,null,1,1,1,pep-0634:p003:c000,pep-0634:p003:c001,pep-0634:p009:c002,1
+A,q14,dev,metadata,null,0,1,2,pep-0635:p016:c007,pep-0635:p016:c006,pep-0634:p009:c003,1
+A,q15,dev,metadata,null,1,1,1,pep-0008:p014:c004,pep-0008:p014:c005,pep-0636:p002:c004,1
+A,t01,test,direct,null,1,1,1,pep-0008:p011:c002,pep-0008:p010:c001,pep-0008:p013:c006,0
+A,t02,test,paraphrase,null,0,1,2,pep-0483:p002:c004,pep-0484:p019:c004,pep-0484:p023:c010,0
+A,t03,test,paraphrase,null,1,1,1,pep-0483:p003:c000,pep-0483:p003:c002,pep-0484:p001:c004,1
+A,t04,test,metadata,null,0,1,2,pep-0635:p015:c002,pep-0635:p015:c001,pep-0634:p007:c000,1
+A,t05,test,metadata,null,1,1,1,pep-0484:p013:c000,pep-0483:p003:c001,pep-0483:p004:c003,0
+B,q01,dev,direct,null,0,1,2,pep-0008:p003:c002,pep-0008:p003:c001,pep-0008:p001:c000,1
+B,q02,dev,condition,null,1,1,1,pep-0008:p003:c002,pep-0008:p003:c001,pep-0008:p008:c002,1
+B,q03,dev,direct,null,1,1,1,pep-0008:p002:c000,pep-0008:p003:c000,pep-0635:p004:c003,0
+B,q04,dev,paraphrase,null,1,1,1,pep-0008:p004:c000,pep-0572:p015:c001,pep-0572:p014:c005,0
+B,q05,dev,paraphrase,null,1,1,1,pep-0008:p014:c006,pep-0572:p004:c001,pep-0008:p014:c007,1
+B,q06,dev,direct,null,1,1,1,pep-0008:p005:c001,pep-0008:p014:c001,pep-0008:p012:c001,0
+B,q07,dev,paraphrase,null,1,1,1,pep-0257:p002:c000,pep-0008:p006:c001,pep-0257:p001:c003,0
+B,q08,dev,direct,null,1,1,1,pep-0001:p001:c003,pep-0001:p001:c000,pep-0001:p002:c003,1
+B,q09,dev,condition,null,1,1,1,pep-0001:p003:c000,pep-0001:p005:c003,pep-0001:p004:c002,0
+B,q10,dev,direct,null,0,0,,pep-0484:p020:c000,pep-0484:p022:c002,pep-0484:p022:c001,1
+B,q11,dev,direct,null,0,0,,pep-0526:p009:c006,pep-0526:p005:c002,pep-0526:p007:c001,1
+B,q12,dev,exception,null,0,0,,pep-0572:p003:c002,pep-0572:p013:c000,pep-0572:p004:c003,1
+B,q13,dev,metadata,null,1,1,1,pep-0634:p003:c000,pep-0636:p006:c001,pep-0634:p009:c001,0
+B,q14,dev,metadata,null,1,1,1,pep-0635:p016:c003,pep-0634:p008:c001,pep-0634:p008:c002,0
+B,q15,dev,metadata,null,0,0,,pep-0008:p014:c003,pep-0484:p004:c000,pep-0008:p014:c009,1
+B,t01,test,direct,null,1,1,1,pep-0008:p011:c003,pep-0008:p010:c002,pep-0008:p013:c004,0
+B,t02,test,paraphrase,null,0,0,,pep-0483:p002:c002,pep-0484:p019:c003,pep-0484:p014:c001,1
+B,t03,test,paraphrase,null,1,1,1,pep-0483:p003:c000,pep-0483:p001:c001,pep-0483:p003:c001,1
+B,t04,test,metadata,null,1,1,1,pep-0635:p015:c001,pep-0634:p007:c000,pep-0634:p007:c002,0
+B,t05,test,metadata,null,1,1,1,pep-0484:p013:c000,pep-0483:p003:c000,pep-0483:p004:c002,0
+C,q01,dev,direct,null,0,1,2,pep-0008:p003:c002,pep-0008:p003:c001,pep-0008:p001:c000,1
+C,q02,dev,condition,null,1,1,1,pep-0008:p003:c002,pep-0008:p003:c001,pep-0008:p008:c002,1
+C,q03,dev,direct,null,1,1,1,pep-0008:p002:c000,pep-0008:p003:c000,pep-0635:p004:c003,0
+C,q04,dev,paraphrase,null,1,1,1,pep-0008:p004:c000,pep-0572:p015:c001,pep-0572:p014:c005,0
+C,q05,dev,paraphrase,null,1,1,1,pep-0008:p014:c006,pep-0572:p004:c001,pep-0008:p014:c007,1
+C,q06,dev,direct,null,1,1,1,pep-0008:p005:c001,pep-0008:p014:c001,pep-0008:p012:c001,0
+C,q07,dev,paraphrase,null,1,1,1,pep-0257:p002:c000,pep-0008:p006:c001,pep-0257:p001:c003,0
+C,q08,dev,direct,null,1,1,1,pep-0001:p001:c003,pep-0001:p001:c000,pep-0001:p002:c003,1
+C,q09,dev,condition,null,1,1,1,pep-0001:p003:c000,pep-0001:p005:c003,pep-0001:p004:c002,0
+C,q10,dev,direct,null,0,0,,pep-0484:p020:c000,pep-0484:p022:c002,pep-0484:p022:c001,1
+C,q11,dev,direct,null,0,0,,pep-0526:p009:c006,pep-0526:p005:c002,pep-0526:p007:c001,1
+C,q12,dev,exception,null,0,0,,pep-0572:p003:c002,pep-0572:p013:c000,pep-0572:p004:c003,1
+C,q13,dev,metadata,"{""pep_type"": ""Standards Track""}",1,1,1,pep-0634:p003:c000,pep-0634:p009:c001,pep-0484:p023:c001,0
+C,q14,dev,metadata,"{""pep_type"": ""Informational""}",1,1,1,pep-0635:p016:c003,pep-0636:p007:c000,pep-0636:p007:c001,1
+C,q15,dev,metadata,"{""pep_type"": ""Process""}",0,0,,pep-0008:p014:c003,pep-0008:p014:c009,pep-0008:p014:c010,1
+C,t01,test,direct,null,1,1,1,pep-0008:p011:c003,pep-0008:p010:c002,pep-0008:p013:c004,0
+C,t02,test,paraphrase,null,0,0,,pep-0483:p002:c002,pep-0484:p019:c003,pep-0484:p014:c001,1
+C,t03,test,paraphrase,null,1,1,1,pep-0483:p003:c000,pep-0483:p001:c001,pep-0483:p003:c001,1
+C,t04,test,metadata,"{""pep_type"": ""Informational""}",1,1,1,pep-0635:p015:c001,pep-0636:p009:c006,pep-0635:p014:c003,0
+C,t05,test,metadata,"{""pep_type"": ""Standards Track""}",1,1,1,pep-0484:p013:c000,pep-0484:p001:c002,pep-0484:p003:c002,0

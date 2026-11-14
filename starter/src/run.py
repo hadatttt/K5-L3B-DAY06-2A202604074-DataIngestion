@@ -139,15 +139,26 @@ def _embedder():
 
 
 def _store(emb):
-    from .store import ChromaStore
-    return ChromaStore(str(CHROMA_PATH), emb.dimensions, emb.model_name)
+    """VECTOR_STORE=pgvector (default; needs docker compose up) or chroma."""
+    import os
+    from dotenv import load_dotenv
+    load_dotenv(ROOT / ".env")
+    kind = os.getenv("VECTOR_STORE", "pgvector").lower()
+    if kind == "chroma":
+        from .store import ChromaStore
+        return ChromaStore(str(CHROMA_PATH), emb.dimensions, emb.model_name)
+    url = os.getenv("DATABASE_URL")
+    if not url:
+        sys.exit("DATABASE_URL missing: copy .env.example to .env (or set VECTOR_STORE=chroma)")
+    from .store import PgVectorStore
+    return PgVectorStore(url, emb.dimensions, emb.model_name)  # raises if DB is down: no silent fallback
 
 
 def cmd_ingest(emb=None) -> dict:
     pages, _, _ = load_corpus()
     emb = emb or _embedder()
     store = _store(emb)
-    report = {"model": emb.model_name, "dimensions": emb.dimensions, "max_seq_length": emb.max_seq_length}
+    report = {"store": type(store).__name__, "model": emb.model_name, "dimensions": emb.dimensions, "max_seq_length": emb.max_seq_length}
     for coll in ("A", "B"):
         chunks = build_chunks(pages, coll)
         t0 = time.perf_counter()

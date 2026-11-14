@@ -1,0 +1,29 @@
+{
+  "top3_identical_to_chroma": {
+    "queries": 60,
+    "different": []
+  },
+  "changed_document_simulation": {
+    "v1_first": {
+      "written": 14,
+      "unchanged": 0,
+      "deleted_stale": 0,
+      "chunks_in_version": 14,
+      "rows_after": 14
+    },
+    "v1_again": {
+      "written": 0,
+      "unchanged": 14,
+      "deleted_stale": 0,
+      "chunks_in_version": 14,
+      "rows_after": 14
+    },
+    "v2_changed": {
+      "written": 1,
+      "unchanged": 10,
+      "deleted_stale": 3,
+      "chunks_in_version": 11,
+      "rows_after": 11
+    }
+  }
+}

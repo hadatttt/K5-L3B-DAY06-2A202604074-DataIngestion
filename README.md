@@ -10,17 +10,23 @@
 | Trace, chỉ số, mẫu audit, nhãn thủ công | [starter/results/](starter/results/) |
 | Báo cáo cá nhân | [report/individual/2A202604074_HaVanKhanhDat.md](report/individual/2A202604074_HaVanKhanhDat.md) |
 
-**Stack:** embedding local `BAAI/bge-small-en-v1.5` (384 chiều, sentence-transformers, CPU) + **Chroma 1.5.9** persistent (cosine/HNSW, metadata filter). Không dùng API, chi phí 0. Không dùng Docker/pgvector (máy không có Docker) — `starter/scripts/check_setup.py` của starter không còn áp dụng.
+**Stack:** embedding local `BAAI/bge-small-en-v1.5` (384 chiều, sentence-transformers, CPU) + **PostgreSQL 16 + pgvector 0.8.7** (Docker Compose của starter, cosine `<=>`, tìm kiếm chính xác, metadata filter trong SQL). Không dùng API, chi phí 0. Chroma 1.5.9 vẫn dùng được làm store thứ hai (`VECTOR_STORE=chroma` trong `.env`); hai store cho cùng top-3 trên 60/60 truy vấn.
 
-**Chạy lại (Windows PowerShell, từ thư mục `starter/`, Python 3.11):**
+**Chạy lại (Windows PowerShell, từ thư mục `starter/`, Python 3.11, cần Docker Desktop):**
 
 ```bash
+docker compose -p day6_student_starter up -d --wait
 python -m venv .venv
 .venv\Scripts\python -m pip install torch==2.15.0 --index-url https://download.pytorch.org/whl/cpu
 .venv\Scripts\python -m pip install -r requirements.txt
-.venv\Scripts\python -m src.run all      # prepare -> validate -> ingest x2 (kiểm tra không trùng) -> evaluate
-.venv\Scripts\python -m src.audit        # xuất mẫu chấm coherence / metadata / grounding
+Copy-Item .env.example .env
+.venv\Scripts\python scripts/check_setup.py   # Database / PostgreSQL / pgvector -> Setup OK
+.venv\Scripts\python -m src.run all           # prepare -> validate -> ingest x2 (không trùng) -> evaluate
+.venv\Scripts\python -m src.audit             # mẫu chấm coherence / metadata / grounding
+.venv\Scripts\python -m scripts.reingest_check  # so top-3 với lần chạy Chroma + mô phỏng tài liệu thay đổi
 ```
+
+Nếu database không chạy, pipeline báo lỗi và dừng, không tự chuyển sang store khác.
 
 Lần đầu tải model (~130 MB) từ Hugging Face. Corpus đã có sẵn trong `starter/data/raw/`; nếu muốn tải lại: `https://raw.githubusercontent.com/python/peps/main/peps/pep-XXXX.rst` cho các PEP liệt kê trong manifest (bản `main` có thể đã đổi — so `sha256` trong manifest).
 

@@ -1,7 +1,9 @@
 # Versions used for the submitted run (Python 3.11.9, Windows, CPU only).
 # Install torch CPU first:  pip install torch==2.15.0 --index-url https://download.pytorch.org/whl/cpu
-chromadb==1.5.9
+psycopg[binary]==3.3.8
+python-dotenv==1.2.4
 sentence-transformers==6.3.0
 transformers==5.23.0
 numpy==2.4.6
-python-dotenv==1.2.4
+# optional second store (VECTOR_STORE=chroma), used for the first run
+chromadb==1.5.9
